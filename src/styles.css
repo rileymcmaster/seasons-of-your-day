@@ -1,0 +1,79 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  overscroll-behavior-y: contain;
+  /* overflow-x: hidden; */
+  margin: 0;
+  padding: 0;
+  /* height: 100%; */
+  /* width: 100%; */
+  user-select: none;
+  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial,
+    sans-serif;
+  /* position: relative; */
+}
+
+.wrapper {
+  /* background: lightblue;
+  position: fixed;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100; */
+  cursor: url('https://uploads.codesandbox.io/uploads/user/b3e56831-8b98-4fee-b941-0e27f39883ab/Ad1_-cursor.png') 39 39, auto;
+}
+
+div.card-container {
+  position: absolute;
+  z-index: 9;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  will-change: transform;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* 
+video {
+  width: 200px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  z-index: 1;
+  user-select: none;
+  transition: all 2s;
+}
+video.fullscreen {
+  width: 100vw;
+  /* height: auto; */
+/* z-index: 100; */
+/* }  */
+div.card-container > div.card-each {
+  background-color: white;
+  background-size: auto 85%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 85vw;
+  max-width: 200px;
+  height: 85vw;
+  max-height: 200px;
+  will-change: transform;
+  border-radius: 10px;
+  /* overflow: hidden; */
+  box-shadow: 0 12.5px 100px -10px rgba(50, 50, 73, 0.4), 0 10px 10px -10px rgba(50, 50, 73, 0.3);
+}
+@media only screen and (min-width: 768px) {
+  div.card-container > div.card-each {
+    width: 85vw;
+    height: 85vw;
+    max-width: 500px;
+    max-height: 500px;
+  }
+}
