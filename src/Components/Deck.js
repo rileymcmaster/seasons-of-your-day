@@ -3,25 +3,26 @@ import styled from 'styled-components'
 
 import { useSprings, animated, to as interpolate } from 'react-spring'
 import { useDrag, useGesture } from 'react-use-gesture'
+import cards from '../assets/index'
 
-const cards = [
-  'https://res.cloudinary.com/bodyofwater/image/upload/v1631049595/Brad/Card1/Photo_13_vzzog8.jpg',
-  'https://res.cloudinary.com/bodyofwater/image/upload/v1631049594/Brad/Card1/Photo_16_egs712.jpg',
-  'https://res.cloudinary.com/bodyofwater/image/upload/v1631049585/Brad/Card1/Photo_15_tdryx1.jpg',
-  'https://res.cloudinary.com/bodyofwater/image/upload/v1631049583/Brad/Card1/Photo_14_rnccvt.jpg',
-  'https://res.cloudinary.com/bodyofwater/image/upload/v1631049582/Brad/Card1/Photo_12_li7xan.jpg',
-  'https://res.cloudinary.com/bodyofwater/image/upload/v1631049579/Brad/Card1/Photo_7_lr7fgm.jpg',
-  'https://res.cloudinary.com/bodyofwater/image/upload/v1631049575/Brad/Card1/Photo_11_w6k8pp.jpg'
-  // 'https://res.cloudinary.com/bodyofwater/image/upload/v1631049574/Brad/Card1/Photo_10_ypyfuc.jpg',
-  // 'https://res.cloudinary.com/bodyofwater/image/upload/v1631049569/Brad/Card1/Photo_9_xxpupj.jpg',
-  // 'https://res.cloudinary.com/bodyofwater/image/upload/v1631049566/Brad/Card1/Photo_8_dos0in.jpg',
-  // 'https://res.cloudinary.com/bodyofwater/image/upload/v1631049559/Brad/Card1/Photo_2_fsvxoo.jpg',
-  // 'https://res.cloudinary.com/bodyofwater/image/upload/v1631049551/Brad/Card1/Photo_1_cppna5.jpg',
-  // 'https://res.cloudinary.com/bodyofwater/image/upload/v1631049549/Brad/Card1/Photo_5_pldhtl.jpg',
-  // 'https://res.cloudinary.com/bodyofwater/image/upload/v1631049547/Brad/Card1/Photo_4_i40b1d.jpg',
-  // 'https://res.cloudinary.com/bodyofwater/image/upload/v1631049542/Brad/Card1/Photo_6_miltbq.jpg',
-  // 'https://res.cloudinary.com/bodyofwater/image/upload/v1631049541/Brad/Card1/Photo_3_ymcps5.jpg'
-]
+// const cards = [
+//   'https://res.cloudinary.com/bodyofwater/image/upload/v1631049595/Brad/Card1/Photo_13_vzzog8.jpg',
+//   'https://res.cloudinary.com/bodyofwater/image/upload/v1631049594/Brad/Card1/Photo_16_egs712.jpg',
+//   'https://res.cloudinary.com/bodyofwater/image/upload/v1631049585/Brad/Card1/Photo_15_tdryx1.jpg',
+//   'https://res.cloudinary.com/bodyofwater/image/upload/v1631049583/Brad/Card1/Photo_14_rnccvt.jpg',
+//   'https://res.cloudinary.com/bodyofwater/image/upload/v1631049582/Brad/Card1/Photo_12_li7xan.jpg',
+//   'https://res.cloudinary.com/bodyofwater/image/upload/v1631049579/Brad/Card1/Photo_7_lr7fgm.jpg',
+//   'https://res.cloudinary.com/bodyofwater/image/upload/v1631049575/Brad/Card1/Photo_11_w6k8pp.jpg'
+// 'https://res.cloudinary.com/bodyofwater/image/upload/v1631049574/Brad/Card1/Photo_10_ypyfuc.jpg',
+// 'https://res.cloudinary.com/bodyofwater/image/upload/v1631049569/Brad/Card1/Photo_9_xxpupj.jpg',
+// 'https://res.cloudinary.com/bodyofwater/image/upload/v1631049566/Brad/Card1/Photo_8_dos0in.jpg',
+// 'https://res.cloudinary.com/bodyofwater/image/upload/v1631049559/Brad/Card1/Photo_2_fsvxoo.jpg',
+// 'https://res.cloudinary.com/bodyofwater/image/upload/v1631049551/Brad/Card1/Photo_1_cppna5.jpg',
+// 'https://res.cloudinary.com/bodyofwater/image/upload/v1631049549/Brad/Card1/Photo_5_pldhtl.jpg',
+// 'https://res.cloudinary.com/bodyofwater/image/upload/v1631049547/Brad/Card1/Photo_4_i40b1d.jpg',
+// 'https://res.cloudinary.com/bodyofwater/image/upload/v1631049542/Brad/Card1/Photo_6_miltbq.jpg',
+// 'https://res.cloudinary.com/bodyofwater/image/upload/v1631049541/Brad/Card1/Photo_3_ymcps5.jpg'
+// ]
 
 // These two are just helpers, they curate spring data, values that are later being interpolated into css
 const to = (i) => ({ x: 0, y: i * -4, scale: 1, rot: -10 + Math.random() * 20, delay: i * 100 })
