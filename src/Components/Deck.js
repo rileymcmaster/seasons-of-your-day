@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 
 import { useSprings, animated, to as interpolate } from 'react-spring'
-import { useDrag, useGesture } from 'react-use-gesture'
+import { useDrag } from 'react-use-gesture'
 import cards from '../assets/index'
 
 // const cards = [
