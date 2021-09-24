@@ -15,6 +15,7 @@ body {
   user-select: none;
   font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial,
     sans-serif;
+  cursor: pointer;
   /* position: relative; */
 }
 
@@ -25,10 +26,10 @@ body {
   width: 100vw;
   height: 100vh;
   z-index: 100; */
-  cursor: url('https://uploads.codesandbox.io/uploads/user/b3e56831-8b98-4fee-b941-0e27f39883ab/Ad1_-cursor.png') 39 39, auto;
+  /* cursor: url('https://uploads.codesandbox.io/uploads/user/b3e56831-8b98-4fee-b941-0e27f39883ab/Ad1_-cursor.png') 39 39, auto; */
 }
 
-div.card-container {
+/* div.card-container {
   position: absolute;
   z-index: 9;
   width: 100vw;
@@ -38,7 +39,7 @@ div.card-container {
   display: flex;
   align-items: center;
   justify-content: center;
-}
+} */
 /* 
 video {
   width: 200px;
@@ -55,7 +56,7 @@ video.fullscreen {
   /* height: auto; */
 /* z-index: 100; */
 /* }  */
-div.card-container > div.card-each {
+/* div.card-container > div.card-each {
   background-color: white;
   background-size: auto 85%;
   background-repeat: no-repeat;
@@ -67,13 +68,13 @@ div.card-container > div.card-each {
   will-change: transform;
   border-radius: 10px;
   /* overflow: hidden; */
-  box-shadow: 0 12.5px 100px -10px rgba(50, 50, 73, 0.4), 0 10px 10px -10px rgba(50, 50, 73, 0.3);
-}
-@media only screen and (min-width: 768px) {
+/* box-shadow: 0 12.5px 100px -10px rgba(50, 50, 73, 0.4), 0 10px 10px -10px rgba(50, 50, 73, 0.3); */
+/* } */
+/* @media only screen and (min-width: 768px) {
   div.card-container > div.card-each {
     width: 85vw;
     height: 85vw;
     max-width: 500px;
     max-height: 500px;
   }
-}
+} */
