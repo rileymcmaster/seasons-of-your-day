@@ -1,3 +1,7 @@
+:root {
+  font-size: clamp(1rem, -0.875rem + 8.333vw, 3.5rem);
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -15,7 +19,7 @@ body {
   user-select: none;
   font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial,
     sans-serif;
-  cursor: pointer;
+  /* cursor: pointer; */
   /* position: relative; */
 }
 
