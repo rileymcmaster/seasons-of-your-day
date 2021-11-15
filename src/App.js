@@ -2,9 +2,8 @@ import React from 'react'
 
 import styled from 'styled-components'
 import './styles.css'
-import Deck from './Components/Deck'
+import Deck from './Components/Deck/index'
 import Video from './Components/Video'
-// import cards from './assets/index'
 import { set0Small, set0Large, set1Small, set1Large } from './assets/index'
 import { BiChevronsDown } from 'react-icons/bi'
 import LongFade from './Components/LongFade'
@@ -15,6 +14,7 @@ const App = () => {
   return (
     <>
       <GlobalStyles />
+
       <DeckWrapper>
         <p>Swipe pictures to see what's underneath</p>
         <p>Double tap them to see them large</p>
