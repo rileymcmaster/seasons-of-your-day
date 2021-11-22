@@ -66,26 +66,20 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  &.card-container {
-    position: absolute;
-    z-index: 9;
-    will-change: transform;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+
   &.cleared {
     z-index: -1;
   }
 
   div.card-container {
     position: absolute;
-    /* overflow: hidden; */
     will-change: transform;
     display: flex;
     align-items: center;
     justify-content: center;
-    touch-action: none;
+
+    /* VVVV this locks scrolling if there are images in the stack */
+    /* touch-action: none; */
   }
 `
 

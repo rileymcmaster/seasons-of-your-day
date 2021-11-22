@@ -4,16 +4,24 @@ import Credits from './Credits'
 import ImageLoader from '../../utils/ImageLoader'
 
 const End = ({ data }) => {
-  const { imagesSmall, imagesLarge } = data
+  const {
+    photo: { imagesSmall, imagesLarge },
+    text
+  } = data
 
   const imgSmall = imagesSmall[0]
   const imgLarge = imagesLarge[0]
 
   return (
     <Wrapper>
-      <ImageContainer>
+      <Container>
+        {text.map((phrase) => {
+          return <p key={phrase.split(' ')[0]}>{phrase}</p>
+        })}
+      </Container>
+      <Container>
         <ImageLoader imgSmall={imgSmall} imgLarge={imgLarge} styles={{}} />
-      </ImageContainer>
+      </Container>
       <Credits />
     </Wrapper>
   )
@@ -24,15 +32,20 @@ const Wrapper = styled.div`
   background: var(--primary-colour);
 `
 
-const ImageContainer = styled.div`
+const Container = styled.div`
   height: 100vh;
   width: 100%;
   max-width: var(--max-content-width);
   margin: auto;
   position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  p {
+    color: white;
+  }
 `
 
 export default End

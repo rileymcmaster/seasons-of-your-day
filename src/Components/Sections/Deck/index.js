@@ -18,6 +18,7 @@ const Wrapper = styled.div`
   padding: 0;
   width: 100%;
   height: 100vh;
+  min-height: 100vh;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -26,9 +27,9 @@ const Wrapper = styled.div`
 
   p {
     position: absolute;
-    border: 2px solid brown;
     width: 80vw;
     max-width: 600px;
+    text-align: center;
   }
 `
 

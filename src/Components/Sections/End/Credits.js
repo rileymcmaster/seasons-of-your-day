@@ -5,9 +5,9 @@ const Credits = () => {
   return (
     <Wrapper>
       <p>
-        This website is a mix of emotions. Places you can see yourself but more importantly, it’s dedicated to the first people of “kanata”.{' '}
+        This project is a mix of emotions. Places you can see yourself but more importantly, it’s dedicated to the first people of “kanata”.{' '}
       </p>
-      <p> SnPink’tn nation</p>
+      <p>SnPink’tn nation</p>
       <p>Tla’amin nation </p>
       <p>Skwxwú7mesh nation </p>
       <p>Tsleil-Waututh Nation </p>
@@ -26,13 +26,14 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin: auto;
   padding: 2rem;
   p {
+    font-size: 1rem;
     width: 80%;
     margin: 0 auto;
+    color: white;
   }
-  color: white;
   max-width: var(--max-content-width);
-  /* margin: auto; */
 `
 export default Credits

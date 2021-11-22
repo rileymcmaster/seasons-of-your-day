@@ -61,15 +61,15 @@ const EachCard = styled(animated.div)`
   will-change: transform;
   border-radius: 10px;
   box-shadow: 0 12.5px 50px -10px rgba(50, 50, 73, 0.4), 0 10px 10px -10px rgba(50, 50, 73, 0.3);
-
+  /* touch-action: pan-x; */
   transition: opacity 0.5s;
 
   &.fullscreen {
-    width: 80vw;
+    width: 90vw;
     max-width: 800px;
-    height: 80vw;
+    height: 90vw;
     max-height: 800px;
-    transition: all 1s;
+    transition: width 0.5s, height 0.5s;
   }
 
   img {

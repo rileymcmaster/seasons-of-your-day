@@ -38,18 +38,16 @@ export default createGlobalStyle`
 }
 
 
-    body {
-    }
-
     html, body {
         overscroll-behavior-y: contain;
+        user-select: none;
     }
     
     h1, h2, h3, h4, h5, h6, p,
     text {
         line-height: 2;
         user-select: none;
-        /* z-index: 1; */
+        color: var(--primary-colour);
     }
     h1 {
         font-size: 2rem;
@@ -62,6 +60,7 @@ export default createGlobalStyle`
     p, a {
     font-size: 1.3rem;
     }
+
 
     html, body, div, span, applet, object, iframe,
     h1, h2, h3, h4, h5, h6, p, blockquote, pre,

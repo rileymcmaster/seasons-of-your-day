@@ -14,7 +14,7 @@ const LongFade = ({ data }) => {
       {data.text.map((quote) => {
         return (
           <QuoteContainer key={Math.random() * 100000}>
-            <div>{quote}</div>
+            <p>{quote}</p>
           </QuoteContainer>
         )
       })}
@@ -50,7 +50,7 @@ const QuoteContainer = styled.div`
   position: relative;
   background: rgb(84, 84, 84);
   background: radial-gradient(circle, rgba(84, 84, 84, 1) 0%, rgba(0, 0, 0, 1) 100%);
-  div {
+  p {
     color: white;
     display: flex;
     justify-content: center;

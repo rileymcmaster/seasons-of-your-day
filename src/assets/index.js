@@ -102,15 +102,17 @@ const allImagesLarge = {
 
 export const instructions = ['Sit down', 'Take your time', 'Put on some headphones', 'You might not have another chance...']
 
-const flashText = [
-  'you’ll fall asleep under a tree',
-  'you’ll think of me',
-  'won’t you linger on?',
-  'make my branches strong',
-  'till I can shade you'
-]
+export const fullBleedText = ['Just like what', 'She follows me', 'My wings', 'Under her tree']
 
-export const soloOverlay1 = img7L
+export const endText = ['If you won’t notice', 'How can I show you', 'All of your worries', 'Have all gone away']
+
+const flashText = [
+  'You’ll fall asleep under a tree',
+  'You’ll think of me',
+  'Won’t you linger on?',
+  'Make my branches strong',
+  "'til I can shade you"
+]
 
 const buildPhotoset = (images, text) => {
   let imagesSmall = []

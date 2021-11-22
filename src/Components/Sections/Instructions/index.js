@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import PlayBtn from '../ControlBar/PlayBtn'
 import { useInView } from 'react-intersection-observer'
+import Fade from 'react-reveal/Fade'
 
 const Instructions = ({ data, musicPlaying, handleMusicPlaying, handleShowControlBar }) => {
   const text = data
@@ -23,8 +24,12 @@ const Instructions = ({ data, musicPlaying, handleMusicPlaying, handleShowContro
 
   return (
     <Wrapper>
-      {text.map((step) => {
-        return <p key={Math.random() * 10000}>{step}</p>
+      {text.map((step, index) => {
+        return (
+          <Fade bottom key={index}>
+            <p>{step}</p>
+          </Fade>
+        )
       })}
       <PlayBtn size={'5rem'} musicPlaying={musicPlaying} handleMusicPlaying={handleMusicPlaying} styles={buttonStyles} />
       <div className="bottom" ref={ref}></div>
@@ -33,7 +38,7 @@ const Instructions = ({ data, musicPlaying, handleMusicPlaying, handleShowContro
 }
 
 const Wrapper = styled.div`
-  height: 100vh;
+  height: 150vh;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;

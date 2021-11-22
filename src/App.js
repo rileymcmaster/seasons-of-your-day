@@ -10,7 +10,9 @@ import {
   photosetFullbleed,
   photosetFlash,
   photosetEnd,
-  instructions
+  instructions,
+  fullBleedText,
+  endText
 } from './assets/index'
 import Title from './Components/Sections/TitlePage/'
 import Deck from './Components/Sections/Deck/'
@@ -20,6 +22,7 @@ import FullBleed from './Components/Sections/FullBleed/'
 import End from './Components/Sections/End/'
 import Instructions from './Components/Sections/Instructions'
 import ControlBar from './Components/Sections/ControlBar'
+import FullBleedGroup from './Components/Sections/FullBleedGroup'
 
 const App = () => {
   const [musicPlaying, setMusicPlaying] = useState(false)
@@ -36,8 +39,8 @@ const App = () => {
   return (
     <>
       <GlobalStyles />
-      {showControlBar && <ControlBar musicPlaying={musicPlaying} handleMusicPlaying={handleMusicPlaying} />}
       <Title data={photosetTitle} />
+      <Spacer />
       <Instructions
         data={instructions}
         musicPlaying={musicPlaying}
@@ -47,11 +50,19 @@ const App = () => {
       <Deck data={photosetDeck1} />
       <FullBleed data={photosetFullbleed[0]} />
       <Deck data={photosetDeck2} />
+      <FullBleed data={photosetFullbleed[1]} />
       <DeckAndVideo data={photosetDeck3} />
+      <FullBleedGroup data={{ photos: photosetFullbleed, text: fullBleedText }} />
       <FadeToFlash data={photosetFlash} />
-      <End data={photosetEnd} />
+      <End data={{ photo: photosetEnd, text: endText }} />
+      {/* {showControlBar && <ControlBar musicPlaying={musicPlaying} handleMusicPlaying={handleMusicPlaying} showControlBar={showControlBar} />} */}
+      <ControlBar musicPlaying={musicPlaying} handleMusicPlaying={handleMusicPlaying} showControlBar={showControlBar} />
     </>
   )
 }
+
+const Spacer = styled.div`
+  height: 20vh;
+`
 
 export default App

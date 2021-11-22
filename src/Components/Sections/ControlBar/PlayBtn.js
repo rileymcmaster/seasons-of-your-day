@@ -17,11 +17,11 @@ const Wrapper = styled.div`
   align-items: center;
   background-color: var(--bg-colour);
   border-radius: 50%;
-  border: 2px solid var(--primary-colour);
+  border: 2px solid rgba(0, 0, 0, 0.5);
   opacity: 0.2;
   width: ${(props) => props.size};
   height: ${(props) => props.size};
-  /* transition: background-color 0.2s, opacity 1s; */
+
   transition: opacity 5s ease-in;
   .icon {
     transition: all 0.2s;
@@ -35,8 +35,8 @@ const Wrapper = styled.div`
   &:hover {
     transition: opacity 1s ease;
     opacity: 1;
-    border-width: 0px;
     background: var(--primary-colour);
+    border-color: rgba(0, 0, 0, 0.8);
   }
   &:hover .icon {
     color: var(--bg-colour);

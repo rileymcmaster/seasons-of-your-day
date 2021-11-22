@@ -23,11 +23,14 @@ const Wrapper = styled.div`
   height: 100vh;
   width: 100%;
   max-width: var(--max-content-width);
-  margin: auto;
+  margin: 0 auto;
+  padding: 0;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  user-select: none;
+  pointer-events: none;
 `
 
 export default FullBleed

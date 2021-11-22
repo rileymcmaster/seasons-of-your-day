@@ -1,13 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import { MdPlayCircleFilled, MdPlayCircleOutline, MdPauseCircleFilled, MdPauseCircleOutline } from 'react-icons/md'
 
 import { BiChevronsDown } from 'react-icons/bi'
 import PlayBtn from './PlayBtn'
 
-const ControlBar = ({ musicPlaying, handleMusicPlaying }) => {
+const ControlBar = ({ musicPlaying, handleMusicPlaying, showControlBar }) => {
   return (
-    <Wrapper>
+    <Wrapper className={showControlBar ? 'show' : 'hide'}>
       <PlayBtn size={'3rem'} musicPlaying={musicPlaying} handleMusicPlaying={handleMusicPlaying} />
     </Wrapper>
   )
@@ -19,13 +18,13 @@ const Wrapper = styled.div`
   left: 0;
   z-index: 99999;
   margin: 1rem;
-`
+  transform: translateY(4rem);
+  transition: transform 0.5s ease 2s;
+  will-change: transform;
 
-const Icon = styled.div`
-  font-size: 2rem;
-  /* position: -webkit-sticky; /* Safari */
-  /* position: sticky; */
-  /* bottom: 0;  */
+  &.show {
+    transform: translateY(0rem);
+  }
 `
 
 export default ControlBar
