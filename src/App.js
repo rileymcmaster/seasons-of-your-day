@@ -2,30 +2,33 @@ import React from 'react'
 
 import styled from 'styled-components'
 import './styles.css'
-import Deck from './Components/Deck'
+import Deck from './Components/Deck/'
 import Video from './Components/Video'
+import { photosetTitle, photosetDeck1, photosetDeck2, photosetDeck3, photosetFullbleed, photosetFlash, photosetEnd } from './assets/index'
+import { BiChevronsDown } from 'react-icons/bi'
+import LongFade from './Components/LongFade'
+import GlobalStyles from './GlobalStyles'
+import Flash from './Components/Flash'
+import Title from './Components/Title'
+import DeckAndVideo from './Components/DeckAndVideo'
+import FadeToFlash from './Components/FadeToFlash'
+import FullBleed from './Components/FullBleed'
+import End from './Components/End'
 
 const App = () => {
   return (
     <>
-      <DeckWrapper>
-        <Deck />
-        <Video />
-      </DeckWrapper>
-      <DeckWrapper style={{ backgroundColor: 'darkblue' }}></DeckWrapper>
+      <GlobalStyles />
+      <FullBleed data={photosetFullbleed[0]} />
+      <Title data={photosetTitle} />
+
+      <Deck data={photosetDeck1} />
+      <Deck data={photosetDeck2} />
+      <DeckAndVideo data={photosetDeck3} />
+      <FadeToFlash data={photosetFlash} />
+      <End data={photosetEnd} />
     </>
   )
 }
-
-const DeckWrapper = styled.div`
-  position: relative;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  background: rgb(153, 153, 153);
-  /* background: radial-gradient(circle, rgba(153, 153, 153, 1) 0%, rgba(62, 62, 62, 1) 79%); */
-`
 
 export default App

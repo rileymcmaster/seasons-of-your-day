@@ -1,0 +1,38 @@
+import React from 'react'
+import styled from 'styled-components'
+
+const Credits = () => {
+  return (
+    <Wrapper>
+      <p>
+        This website is a mix of emotions. Places you can see yourself but more importantly, it’s dedicated to the first people of “kanata”.{' '}
+      </p>
+      <p> SnPink’tn nation</p>
+      <p>Tla’amin nation </p>
+      <p>Skwxwú7mesh nation </p>
+      <p>Tsleil-Waututh Nation </p>
+      <p>Musquem Nation </p>
+      <p>respect to your land</p>
+      <p>photos by</p>
+      <p>brad hill</p>
+      <p>website by</p>
+      <p>riley mcmaster</p>
+      <p>2021</p>
+    </Wrapper>
+  )
+}
+const Wrapper = styled.div`
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+  p {
+    width: 80%;
+    margin: 0 auto;
+  }
+  color: white;
+  max-width: var(--max-content-width);
+  /* margin: auto; */
+`
+export default Credits
