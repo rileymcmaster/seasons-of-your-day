@@ -7,7 +7,7 @@ const Deck = ({ data }) => {
   return (
     <Wrapper>
       <CardAll cardsSmall={imagesSmall} cardsLarge={imagesLarge} />
-      <p>{text}</p>
+      {text && <p>{text}</p>}
     </Wrapper>
   )
 }
@@ -18,16 +18,17 @@ const Wrapper = styled.div`
   padding: 0;
   width: 100%;
   height: 100vh;
-  overflow-y: visible;
-  overflow-x: hidden;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
+
   p {
     position: absolute;
-    padding: 10vh 10vw;
+    border: 2px solid brown;
+    width: 80vw;
+    max-width: 600px;
   }
 `
 

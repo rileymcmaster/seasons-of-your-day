@@ -2,11 +2,13 @@ import { createGlobalStyle } from 'styled-components'
 
 export default createGlobalStyle`
   :root {
-      --primary-color: #000000;
+      --primary-colour: #000000;
+      --bg-colour: #ffffff;
       --max-content-width: 800px;
-      font-size: 10px;
     }
     
+
+
     *,
     *:before,
     *:after {
@@ -19,40 +21,49 @@ export default createGlobalStyle`
     input, button, select, option,
     h1, h2, h3, h4, h5, h6, p,
     text {
-        @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300&display=swap');
-        font-family: 'Barlow', sans-serif, Arial, Helvetica;
+        font-family: 'Alata', sans-serif;
+        font-family: 'Quicksand', sans-serif;
     }
     
     html {
         scroll-behavior: smooth;
+        font-size: 22px;
     }
 
+    @media (max-width: 800px) {
+    html { font-size: 17px; }
+    }
+    @media (max-width: 400px) {
+    html { font-size: 12px; }
+}
 
-body {
+
+    body {
     }
 
     html, body {
+        overscroll-behavior-y: contain;
     }
     
-    
-    input, button, select, option,
     h1, h2, h3, h4, h5, h6, p,
     text {
-        z-index: 1;
+        line-height: 2;
+        user-select: none;
+        /* z-index: 1; */
     }
     h1 {
         font-size: 2rem;
     }
 
     h2{
-        /* font-size: clamp(1.5em,calc(5 / 80 * 100vw), 3em); */
-}
+        font-size: 1.8rem;
+    }
 
-p, a {
-    font-size: 1rem;
-    /* font-size: clamp(.5em,calc(3 / 80 * 100vw), 1.2em);} */
+    p, a {
+    font-size: 1.3rem;
+    }
 
-html, body, div, span, applet, object, iframe,
+    html, body, div, span, applet, object, iframe,
     h1, h2, h3, h4, h5, h6, p, blockquote, pre,
     a, abbr, acronym, address, big, cite, code,
     del, dfn, em, img, ins, kbd, q, s, samp,
@@ -66,7 +77,6 @@ html, body, div, span, applet, object, iframe,
     menu, nav, output, ruby, section, summary,
     time, mark, audio, video {
 
-/* 
     }
     /* HTML5 display-role reset for older browsers */
     article, aside, details, figcaption, figure,

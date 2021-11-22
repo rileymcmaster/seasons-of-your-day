@@ -100,6 +100,8 @@ const allImagesLarge = {
   img23L
 }
 
+export const instructions = ['Sit down', 'Take your time', 'Put on some headphones', 'You might not have another chance...']
+
 const flashText = [
   'you’ll fall asleep under a tree',
   'you’ll think of me',

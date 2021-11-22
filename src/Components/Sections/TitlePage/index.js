@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import Deck from './Deck/index'
+import Deck from '../Deck/index'
 import { Transition } from 'react-transition-group'
 
 const Title = ({ data }) => {

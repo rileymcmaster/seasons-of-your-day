@@ -1,30 +1,25 @@
 import React from 'react'
 import styled from 'styled-components'
-import Credits from './Credits'
-import ImageLoader from './utils/ImageLoader'
+import ImageLoader from '../../utils/ImageLoader'
 
-const End = ({ data }) => {
+const FullBleed = ({ data }) => {
   const { imagesSmall, imagesLarge } = data
 
   const imgSmall = imagesSmall[0]
   const imgLarge = imagesLarge[0]
 
+  const styles = {
+    transition: 'all 1s'
+  }
+
   return (
     <Wrapper>
-      <ImageContainer>
-        <ImageLoader imgSmall={imgSmall} imgLarge={imgLarge} styles={{}} />
-      </ImageContainer>
-      <Credits />
+      <ImageLoader imgSmall={imgSmall} imgLarge={imgLarge} styles={styles} />
     </Wrapper>
   )
 }
 
 const Wrapper = styled.div`
-  width: 100%;
-  background: var(--primary-color);
-`
-
-const ImageContainer = styled.div`
   height: 100vh;
   width: 100%;
   max-width: var(--max-content-width);
@@ -35,4 +30,4 @@ const ImageContainer = styled.div`
   align-items: center;
 `
 
-export default End
+export default FullBleed

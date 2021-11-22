@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import Deck from './Deck/index'
+import Deck from '../Deck/index'
 import Video from './Video'
 
 const DeckAndVideo = ({ data }) => {

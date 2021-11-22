@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { AiFillPlayCircle } from 'react-icons/ai'
 import { BiVolumeMute, BiVolumeFull } from 'react-icons/bi'
-import { loopVideo } from '../assets/index'
+import { loopVideo } from '../../../assets/index'
 
 const Video = () => {
   const [playVideo, setPlayVideo] = useState(false)

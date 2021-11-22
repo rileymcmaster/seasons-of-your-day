@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import styled, { keyframes, css } from 'styled-components'
 import { useInView } from 'react-intersection-observer'
-import useScrollBlock from '../hooks/useScrollBlock'
-import ImageLoader from './utils/ImageLoader'
+import useScrollBlock from '../../../hooks/useScrollBlock'
+import ImageLoader from '../../utils/ImageLoader'
 
 const Flash = ({ data }) => {
   const [isInView, setIsInView] = useState(false)
@@ -28,9 +28,9 @@ const Flash = ({ data }) => {
       // stop the user's ability to scroll while the image appears
       // TODO - comment this back in :)
       // blockScroll()
-      setTimeout(() => {
-        allowScroll()
-      }, 8000)
+      // setTimeout(() => {
+      //   allowScroll()
+      // }, 8000)
     }
   }, [isInView])
 
