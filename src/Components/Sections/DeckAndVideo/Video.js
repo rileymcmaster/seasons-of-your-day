@@ -52,7 +52,8 @@ const Video = () => {
 
 const Wrapper = styled.div`
   width: 90%;
-  video {
+  video,
+  img {
     position: absolute;
     z-index: 0;
     width: 50vw;
