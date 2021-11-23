@@ -34,6 +34,7 @@ const Wrapper = styled.div`
   align-items: center;
   flex-direction: column;
   height: 100vh;
+  height: var(--full-height);
   margin-top: -5rem;
 
   @media (min-width: 768px) {

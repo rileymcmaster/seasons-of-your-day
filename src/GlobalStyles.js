@@ -1,10 +1,18 @@
 import { createGlobalStyle } from 'styled-components'
 
+let vh = window.innerHeight * 0.01
+document.documentElement.style.setProperty('--vh', `${vh}px`)
+window.addEventListener('resize', () => {
+  let vh = window.innerHeight * 0.01
+  document.documentElement.style.setProperty('--vh', `${vh}px`)
+})
+
 export default createGlobalStyle`
   :root {
       --primary-colour: #000000;
       --bg-colour: #ffffff;
       --max-content-width: 800px;
+      --full-height : calc(var(--vh, 1vh) * 100)
     }
     
 
