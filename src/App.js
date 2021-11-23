@@ -65,25 +65,4 @@ const Spacer = styled.div`
   height: 20vh;
 `
 
-//   h2 {
-//     margin-top: 5rem;
-//   }
-// `
-// const HiddenText = styled.div`
-//   font-size: 0.8rem;
-//   text-align: center;
-//   color: black;
-//   position: absolute;
-// `
-// const Icon = styled.div`
-//   position: fixed;
-//   bottom: 0;
-//   left: 50%;
-//   transform: translateX(-50%);
-//   opacity: 0.7;
-//   mix-blend-mode: exclusion;
-//   color: white;
-//   font-size: 1.5rem;
-//   z-index: 1;
-// `
 export default App

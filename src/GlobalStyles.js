@@ -34,7 +34,7 @@ export default createGlobalStyle`
     html { font-size: 17px; }
     }
     @media (max-width: 400px) {
-    html { font-size: 12px; }
+    html { font-size: 14px; }
 }
 
 

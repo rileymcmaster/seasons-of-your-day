@@ -27,14 +27,17 @@ const Flash = ({ data }) => {
     if (isInView) {
       // stop the user's ability to scroll while the image appears
       // TODO - comment this back in :)
-      // blockScroll()
-      // setTimeout(() => {
-      //   allowScroll()
-      // }, 8000)
+      blockScroll()
+      setTimeout(() => {
+        allowScroll()
+      }, 8000)
     }
   }, [isInView])
 
-  const styles = {}
+  const styles = {
+    top: '50%',
+    transform: 'translateY(-50%)'
+  }
 
   return (
     <Wrapper inView={inView}>

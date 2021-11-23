@@ -52,8 +52,8 @@ const Wrapper = styled.div`
 
 const Instructions = styled.div`
   position: absolute;
-  bottom: 0%;
-  margin-bottom: 2rem;
+  bottom: 0;
+  /* margin-bottom: 2rem; */
   max-width: var(--max-content-width);
   text-align: center;
 
