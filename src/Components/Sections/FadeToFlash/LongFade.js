@@ -26,6 +26,7 @@ const FixedFade = styled.div`
   display: flex;
   justify-content: center;
   height: 100vh;
+  height: var(--full-height);
   top: 0;
   background: rgba(94, 94, 94, 0.7707457983193278);
   background: linear-gradient(180deg, rgba(255, 255, 255, 0) 55%, rgba(94, 94, 94, 1) 90%);

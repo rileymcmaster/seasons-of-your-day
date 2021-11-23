@@ -31,6 +31,7 @@ const ImageContainer = styled.div`
   max-width: var(--max-content-width);
   height: 100%;
   padding: 0;
+  margin: 0 auto;
   user-select: none;
   pointer-events: none;
 `
