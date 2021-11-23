@@ -17,8 +17,8 @@ const Wrapper = styled.div`
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100vh;
-  min-height: 100vh;
+  height: 120vh;
+  height: var(--deck-page-height);
   overflow: hidden;
   display: flex;
   flex-direction: column;

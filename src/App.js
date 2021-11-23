@@ -40,7 +40,7 @@ const App = () => {
     <>
       <GlobalStyles />
       <Title data={photosetTitle} />
-      <Spacer />
+      <SpacerDiv />
       <Instructions
         data={instructions}
         musicPlaying={musicPlaying}
@@ -55,14 +55,14 @@ const App = () => {
       <FullBleedGroup data={{ photos: photosetFullbleed, text: fullBleedText }} />
       <FadeToFlash data={photosetFlash} />
       <End data={{ photo: photosetEnd, text: endText }} />
-      {/* {showControlBar && <ControlBar musicPlaying={musicPlaying} handleMusicPlaying={handleMusicPlaying} showControlBar={showControlBar} />} */}
       <ControlBar musicPlaying={musicPlaying} handleMusicPlaying={handleMusicPlaying} showControlBar={showControlBar} />
     </>
   )
 }
 
-const Spacer = styled.div`
+const SpacerDiv = styled.div`
   height: 20vh;
+  height: var(--spacer-height);
 `
 
 export default App

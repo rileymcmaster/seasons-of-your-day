@@ -57,6 +57,7 @@ const FlashAnimation = keyframes`
 
 const Wrapper = styled.div`
   height: 100vh;
+  height: var(--full-height);
   overflow: hidden;
   background-color: black;
   position: relative;

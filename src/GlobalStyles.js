@@ -1,18 +1,24 @@
 import { createGlobalStyle } from 'styled-components'
 
+// To compensate for the in-app browser's toolbar from messing up the vh
 let vh = window.innerHeight * 0.01
 document.documentElement.style.setProperty('--vh', `${vh}px`)
-window.addEventListener('resize', () => {
-  let vh = window.innerHeight * 0.01
+if (window.innerWidth > 768) {
+  let vh = window.screen.height * 0.01
   document.documentElement.style.setProperty('--vh', `${vh}px`)
-})
+}
 
 export default createGlobalStyle`
   :root {
       --primary-colour: #000000;
       --bg-colour: #ffffff;
       --max-content-width: 800px;
-      --full-height : calc(var(--vh, 1vh) * 100)
+      --full-height : calc(var(--vh, 1vh) * 100);
+      --deck-page-height: calc(var(--vh, 1vh) * 120);
+      --spacer-height: calc(var(--vh, 1vh) * 20);
+      --instruction-page-height: calc(var(--vh, 1vh) * 200);
+      --fade-page-height: calc(var(--vh, 1vh) * 500);
+      --fade-content-height: calc(var(--vh, 1vh) * 300);
     }
     
 
@@ -49,6 +55,7 @@ export default createGlobalStyle`
     html, body {
         overscroll-behavior-y: contain;
         user-select: none;
+        /* height: 100%; */
     }
     
     h1, h2, h3, h4, h5, h6, p,

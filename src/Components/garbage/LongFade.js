@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
-import { soloOverlay1 } from '../assets/index'
+import { soloOverlay1 } from '../../assets/index'
 
 const quotes = [
   'you’ll fall asleep under a tree',

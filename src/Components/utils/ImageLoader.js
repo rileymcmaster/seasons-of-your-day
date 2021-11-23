@@ -19,7 +19,10 @@ export default ({ imgSmall, imgLarge, styles }) => {
 const Wrapper = styled.div`
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
 
 const Image = styled.img`

@@ -14,21 +14,23 @@ const FullBleed = ({ data }) => {
 
   return (
     <Wrapper>
-      <ImageLoader imgSmall={imgSmall} imgLarge={imgLarge} styles={styles} />
+      <ImageContainer>
+        <ImageLoader imgSmall={imgSmall} imgLarge={imgLarge} styles={styles} />
+      </ImageContainer>
     </Wrapper>
   )
 }
 
 const Wrapper = styled.div`
   height: 100vh;
+  height: var(--full-height);
   width: 100%;
+`
+
+const ImageContainer = styled.div`
   max-width: var(--max-content-width);
-  margin: 0 auto;
+  height: 100%;
   padding: 0;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   user-select: none;
   pointer-events: none;
 `

@@ -36,6 +36,7 @@ const TextPage = styled.div`
   margin: auto;
   padding: 0;
   height: 100vh;
+  height: var(--full-height);
   display: flex;
   justify-content: center;
   align-items: center;

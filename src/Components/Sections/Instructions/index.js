@@ -39,6 +39,7 @@ const Instructions = ({ data, musicPlaying, handleMusicPlaying, handleShowContro
 
 const Wrapper = styled.div`
   height: 150vh;
+  height: var(--instruction-page-height);
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;

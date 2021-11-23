@@ -23,6 +23,7 @@ const Credits = () => {
 }
 const Wrapper = styled.div`
   height: 100vh;
+  height: var(--full-height);
   display: flex;
   flex-direction: column;
   justify-content: center;

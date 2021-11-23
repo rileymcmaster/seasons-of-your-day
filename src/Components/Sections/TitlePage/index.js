@@ -35,26 +35,25 @@ const Wrapper = styled.div`
   flex-direction: column;
   height: 100vh;
   height: var(--full-height);
-  margin-top: -5rem;
+  margin-top: -4rem;
 
   @media (min-width: 768px) {
     & {
-      margin-top: 0rem;
+      margin-top: -2rem;
     }
   }
   svg {
     position: absolute;
     text-align: center;
     width: 70vw;
-    max-width: 100%;
     max-width: var(--max-content-width);
   }
 `
 
 const Instructions = styled.div`
   position: absolute;
-  bottom: 0;
-  /* margin-bottom: 2rem; */
+  top: 80%;
+  margin-bottom: 2rem;
   max-width: var(--max-content-width);
   text-align: center;
 

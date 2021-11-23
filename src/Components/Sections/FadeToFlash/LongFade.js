@@ -41,12 +41,14 @@ const FixedFade = styled.div`
 const FadeBackground = styled.div`
   position: relative;
   height: 500vh;
+  height: var(--fade-page-height);
   background: rgb(255, 255, 255);
   background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(0, 0, 0, 1) 100%);
 `
 const QuoteContainer = styled.div`
   background-color: rgb(0, 0, 0);
   height: 300vh;
+  height: var(--fade-content-height);
   position: relative;
   background: rgb(84, 84, 84);
   background: radial-gradient(circle, rgba(84, 84, 84, 1) 0%, rgba(0, 0, 0, 1) 100%);
@@ -56,7 +58,7 @@ const QuoteContainer = styled.div`
     justify-content: center;
     align-items: center;
     top: 50%;
-    margin-bottom: 100vh;
+    margin-bottom: var(--full-height);
     position: sticky;
   }
 `

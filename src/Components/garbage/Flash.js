@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styled, { keyframes, css } from 'styled-components'
 import { useInView } from 'react-intersection-observer'
-import { soloOverlay1 } from '../assets/index'
+import { soloOverlay1 } from '../../assets/index'
 
 const Flash = () => {
   const [isInView, setIsInView] = useState(false)

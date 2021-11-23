@@ -34,6 +34,7 @@ const Wrapper = styled.div`
 
 const Container = styled.div`
   height: 100vh;
+  height: var(--full-height);
   width: 100%;
   max-width: var(--max-content-width);
   margin: auto;
