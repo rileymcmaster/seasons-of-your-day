@@ -57,8 +57,8 @@ const App = () => {
         <DeckAndVideo data={photosetDeck3} />
         <FullBleedGroup data={{ photos: photosetFullbleed, text: fullBleedText }} />
         <FadeToFlash data={photosetFlash} setShowLastPart={setShowLastPart} />
-        {/* {showLastPart && <End data={{ photo: photosetEnd, text: endText }} />} */}
-        <End data={{ photo: photosetEnd, text: endText }} />
+        {showLastPart && <End data={{ photo: photosetEnd, text: endText }} />}
+        {/* <End data={{ photo: photosetEnd, text: endText }} /> */}
       </Wrapper>
       <ControlBar musicPlaying={musicPlaying} handleMusicPlaying={handleMusicPlaying} showControlBar={showControlBar} />
     </>

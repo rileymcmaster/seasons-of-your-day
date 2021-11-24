@@ -5,7 +5,7 @@ import { BiPlay, BiPause } from 'react-icons/bi'
 
 const PlayBtn = ({ size, musicPlaying, handleMusicPlaying, styles }) => {
   return (
-    <Wrapper size={size} onClick={handleMusicPlaying} style={{ ...styles }}>
+    <Wrapper size={size} onClickCapture={handleMusicPlaying} style={{ ...styles }}>
       {musicPlaying ? <BiPause className="icon" /> : <BiPlay className="icon  play" />}
     </Wrapper>
   )
