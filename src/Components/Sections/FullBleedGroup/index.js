@@ -15,7 +15,7 @@ const FullBleedGroup = ({ data }) => {
         return (
           <React.Fragment key={phrase}>
             <FullBleed data={photos[index + 2]} />
-            <TextPage>
+            <TextPage className="scroll-snap">
               <p>{phrase}</p>
             </TextPage>
           </React.Fragment>

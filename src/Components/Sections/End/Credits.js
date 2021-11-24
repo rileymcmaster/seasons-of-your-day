@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const Credits = () => {
   return (
-    <Wrapper>
+    <Wrapper className="scroll-snap">
       <p>
         This project is a mix of emotions. Places you can see yourself but more importantly, it’s dedicated to the first people of “kanata”.{' '}
       </p>

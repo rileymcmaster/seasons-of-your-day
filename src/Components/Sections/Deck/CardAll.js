@@ -59,6 +59,8 @@ const CardAll = ({ cardsSmall, cardsLarge }) => {
 const Wrapper = styled.div`
   z-index: 100;
 
+  scroll-snap-align: center;
+
   height: 100%;
   width: 100%;
   overflow-x: hidden;

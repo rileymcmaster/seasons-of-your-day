@@ -40,24 +40,31 @@ export default createGlobalStyle`
     }
     
     html {
-        scroll-behavior: smooth;
+        /* scroll-behavior: smooth; */
         font-size: 22px;
     }
-
+    
     @media (max-width: 800px) {
-    html { font-size: 17px; }
+        html { font-size: 17px; }
     }
     @media (max-width: 400px) {
-    html { font-size: 14px; }
-}
-
-
+        html { font-size: 14px; }
+    }
+    
+    
     html, body {
         overscroll-behavior-y: contain;
         user-select: none;
-        /* height: 100%; */
+        scroll-behavior: smooth;
+        overflow-y: scroll;
+        scroll-snap-type: y proximity;
+        height: 100%;
     }
-    
+
+    .scroll-snap {
+        scroll-snap-align: center;
+    }
+
     h1, h2, h3, h4, h5, h6, p,
     text {
         line-height: 2;

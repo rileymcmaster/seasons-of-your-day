@@ -5,7 +5,7 @@ import CardAll from './CardAll'
 const Deck = ({ data }) => {
   const { text, imagesSmall, imagesLarge } = data
   return (
-    <Wrapper>
+    <Wrapper className="scroll-snap">
       <CardAll cardsSmall={imagesSmall} cardsLarge={imagesLarge} />
       {text && <p>{text}</p>}
     </Wrapper>
@@ -28,6 +28,7 @@ const Wrapper = styled.div`
   p {
     position: absolute;
     width: 80vw;
+    z-index: 1;
     max-width: 600px;
     text-align: center;
   }

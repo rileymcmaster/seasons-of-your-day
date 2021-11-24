@@ -4,7 +4,7 @@ import { useInView } from 'react-intersection-observer'
 import useScrollBlock from '../../../hooks/useScrollBlock'
 import ImageLoader from '../../utils/ImageLoader'
 
-const Flash = ({ data }) => {
+const Flash = ({ data, setShowLastPart }) => {
   const [isInView, setIsInView] = useState(false)
   const [blockScroll, allowScroll] = useScrollBlock()
 
@@ -30,6 +30,7 @@ const Flash = ({ data }) => {
       blockScroll()
       setTimeout(() => {
         allowScroll()
+        setShowLastPart(true)
       }, 8000)
     }
   }, [isInView])
@@ -40,7 +41,7 @@ const Flash = ({ data }) => {
   }
 
   return (
-    <Wrapper inView={inView}>
+    <Wrapper className="scroll-snap" inView={inView}>
       <FlashDiv isInView={isInView}></FlashDiv>
       <ImageContainer className={isInView ? 'image-overlay' : undefined}>
         <ImageLoader imgSmall={imgSmall} imgLarge={imgLarge} styles={styles} />
@@ -62,7 +63,8 @@ const Wrapper = styled.div`
   background-color: black;
   position: relative;
   display: flex;
-
+  /* scroll-snap-align: center; */
+  scroll-snap-stop: always;
   div.bottom {
     position: absolute;
     bottom: 0;

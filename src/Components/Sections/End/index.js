@@ -14,12 +14,12 @@ const End = ({ data }) => {
 
   return (
     <Wrapper>
-      <Container>
+      <Container className="scroll-snap">
         {text.map((phrase) => {
           return <p key={phrase.split(' ')[0]}>{phrase}</p>
         })}
       </Container>
-      <Container>
+      <Container className="scroll-snap">
         <ImageLoader imgSmall={imgSmall} imgLarge={imgLarge} styles={{}} />
       </Container>
       <Credits />

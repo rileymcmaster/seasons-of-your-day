@@ -13,7 +13,7 @@ const FullBleed = ({ data }) => {
   }
 
   return (
-    <Wrapper>
+    <Wrapper className="scroll-snap">
       <ImageContainer>
         <ImageLoader imgSmall={imgSmall} imgLarge={imgLarge} styles={styles} />
       </ImageContainer>
