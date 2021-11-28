@@ -27,7 +27,6 @@ import FullBleedGroup from './Components/Sections/FullBleedGroup'
 const App = () => {
   const [musicPlaying, setMusicPlaying] = useState(false)
   const [showControlBar, setShowControlBar] = useState(false)
-
   const [showLastPart, setShowLastPart] = useState(false)
 
   const handleMusicPlaying = () => {
@@ -44,23 +43,18 @@ const App = () => {
       <Wrapper>
         <Title data={photosetTitle} />
         <SpacerDiv />
-        <Instructions
-          data={instructions}
-          musicPlaying={musicPlaying}
-          handleMusicPlaying={handleMusicPlaying}
-          handleShowControlBar={handleShowControlBar}
-        />
+        <Instructions data={instructions} handleShowControlBar={handleShowControlBar} />
         <Deck data={photosetDeck1} />
         <FullBleed data={photosetFullbleed[0]} />
         <Deck data={photosetDeck2} />
         <FullBleed data={photosetFullbleed[1]} />
-        <DeckAndVideo data={photosetDeck3} />
+        <DeckAndVideo data={photosetDeck3} musicPlaying={musicPlaying} handleMusicPlaying={handleMusicPlaying} />
         <FullBleedGroup data={{ photos: photosetFullbleed, text: fullBleedText }} />
         <FadeToFlash data={photosetFlash} setShowLastPart={setShowLastPart} />
         {showLastPart && <End data={{ photo: photosetEnd, text: endText }} />}
         {/* <End data={{ photo: photosetEnd, text: endText }} /> */}
       </Wrapper>
-      <ControlBar musicPlaying={musicPlaying} handleMusicPlaying={handleMusicPlaying} showControlBar={showControlBar} />
+      <ControlBar showControlBar={showControlBar} />
     </>
   )
 }

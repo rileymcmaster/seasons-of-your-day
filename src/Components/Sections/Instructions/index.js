@@ -4,7 +4,7 @@ import PlayBtn from '../ControlBar/PlayBtn'
 import { useInView } from 'react-intersection-observer'
 import Fade from 'react-reveal/Fade'
 
-const Instructions = ({ data, musicPlaying, handleMusicPlaying, handleShowControlBar }) => {
+const Instructions = ({ data, handleShowControlBar }) => {
   const text = data
 
   const [ref, inView] = useInView({
@@ -31,7 +31,7 @@ const Instructions = ({ data, musicPlaying, handleMusicPlaying, handleShowContro
           </Fade>
         )
       })}
-      <PlayBtn size={'5rem'} musicPlaying={musicPlaying} handleMusicPlaying={handleMusicPlaying} styles={buttonStyles} />
+      <PlayBtn size={'5rem'} styles={buttonStyles} />
       <div className="bottom" ref={ref}></div>
     </Wrapper>
   )
@@ -45,6 +45,8 @@ const Wrapper = styled.div`
   justify-content: space-evenly;
   align-items: center;
   position: relative;
+  padding: 0 2rem;
+  text-align: center;
 
   div.bottom {
     background: blue;

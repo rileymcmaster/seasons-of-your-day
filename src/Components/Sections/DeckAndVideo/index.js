@@ -4,11 +4,11 @@ import styled from 'styled-components'
 import Deck from '../Deck/index'
 import Video from './Video'
 
-const DeckAndVideo = ({ data }) => {
+const DeckAndVideo = ({ data, musicPlaying, handleMusicPlaying }) => {
   return (
     <Wrapper>
       <Deck data={data} />
-      <Video />
+      <Video musicPlaying={musicPlaying} handleMusicPlaying={handleMusicPlaying} />
     </Wrapper>
   )
 }

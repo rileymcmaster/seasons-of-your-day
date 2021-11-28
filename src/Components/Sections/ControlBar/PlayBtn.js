@@ -1,17 +1,27 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import { connect, useDispatch, useSelector } from 'react-redux'
+import { playMusic } from '../../../actions/isMusicPlaying'
+
 import { BiPlay, BiPause } from 'react-icons/bi'
 
-const PlayBtn = ({ size, musicPlaying, handleMusicPlaying, styles }) => {
+const PlayBtn = ({ size, styles }) => {
+  const dispatch = useDispatch()
+  const musicPlaying = useSelector((state) => state.music.isMusicPlaying)
+
+  const handleClick = () => {
+    dispatch(playMusic())
+  }
+
   return (
-    <Wrapper size={size} onClickCapture={handleMusicPlaying} style={{ ...styles }}>
+    <Wrapper size={size} onClickCapture={handleClick} style={{ ...styles }}>
       {musicPlaying ? <BiPause className="icon" /> : <BiPlay className="icon  play" />}
     </Wrapper>
   )
 }
 
-const Wrapper = styled.div`
+const Wrapper = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -42,5 +52,9 @@ const Wrapper = styled.div`
     color: var(--bg-colour);
   }
 `
-
-export default PlayBtn
+const mapStateToProps = (state) => {
+  return {
+    isMusicPlaying: state.music.isMusicPlaying
+  }
+}
+export default connect(mapStateToProps)(PlayBtn)

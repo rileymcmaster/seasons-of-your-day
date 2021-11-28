@@ -40,6 +40,7 @@ const Wrapper = styled.div`
   @media (min-width: 768px) {
     & {
       margin-top: -2rem;
+      height: 100vh;
     }
   }
   svg {

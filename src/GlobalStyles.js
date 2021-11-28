@@ -42,6 +42,10 @@ export default createGlobalStyle`
     html {
         /* scroll-behavior: smooth; */
         font-size: 22px;
+                overflow-y: scroll;
+        scroll-snap-type: proximity;
+        scroll-snap-type: y proximity;
+        scroll-snap-points-y: repeat(100%);
     }
     
     @media (max-width: 800px) {
@@ -56,8 +60,7 @@ export default createGlobalStyle`
         overscroll-behavior-y: contain;
         user-select: none;
         scroll-behavior: smooth;
-        overflow-y: scroll;
-        scroll-snap-type: y proximity;
+
         height: 100%;
     }
 

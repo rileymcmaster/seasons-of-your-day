@@ -29,7 +29,7 @@ const Wrapper = styled.div`
     position: absolute;
     width: 80vw;
     z-index: 1;
-    max-width: 600px;
+    max-width: 650px;
     text-align: center;
   }
 `

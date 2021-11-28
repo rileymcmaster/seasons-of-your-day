@@ -1,39 +1,43 @@
 import React, { useRef, useState } from 'react'
 import styled from 'styled-components'
+import { connect, useDispatch, useSelector } from 'react-redux'
+import { playMusic } from '../../../actions/isMusicPlaying'
+
 import { AiFillPlayCircle } from 'react-icons/ai'
 import { loopVideo } from '../../../assets/index'
 
 const Video = () => {
   const [playVideo, setPlayVideo] = useState(false)
   const [fullscreenVideo, setFullScreenVideo] = useState(false)
-  const [muteVideo, setMuteVideo] = useState(false)
-  const scrollValue = useRef(0)
+
   const videoRef = useRef(null)
 
+  const dispatch = useDispatch()
+  let musicPlaying = useSelector((state) => state.music.isMusicPlaying)
+
+  const handleMute = () => {
+    if (musicPlaying) {
+      dispatch(playMusic())
+    }
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight
+    const scrolled = winScroll / height
+
+    setFullScreenVideo(false)
+    let currentVideo = document.querySelector('video')
+    currentVideo.muted = true
+    window.removeEventListener('scroll', handleMute)
+  }
+
   const handlePlay = () => {
+    if (musicPlaying) {
+      dispatch(playMusic())
+    }
     setPlayVideo(true)
     setFullScreenVideo(true)
     let currentVideo = document.querySelector('video')
     currentVideo.play()
-    document.addEventListener('scroll', handleMute)
-  }
-
-  //   useEffect(()=> {
-  // if (fullscreenVideo) {
-  //   window.addEventListener('scroll')
-  // }
-  //   }, [fullscreenVideo])
-
-  const handleMute = () => {
-    const winScroll = document.body.scrollTop || document.documentElement.scrollTop
-    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight
-    const scrolled = winScroll / height
-    console.log('scrolled', scrolled)
-    setFullScreenVideo(false)
-    setMuteVideo(true)
-    let currentVideo = document.querySelector('video')
-    currentVideo.muted = true
-    // document.removeEventListener('scroll', handleMute)
+    window.addEventListener('scroll', handleMute)
   }
 
   return (
@@ -85,10 +89,16 @@ const Icon = styled.span`
   opacity: 1;
 
   .icon {
-    /* color: var(--bg-colour); */
-    color: orange;
+    color: var(--bg-colour);
+    opacity: 0.8;
     font-size: 3rem;
   }
 `
+const mapStateToProps = (state) => {
+  return {
+    isMusicPlaying: state.music.isMusicPlaying
+  }
+}
+export default connect(mapStateToProps)(Video)
 
-export default Video
+// export default Video

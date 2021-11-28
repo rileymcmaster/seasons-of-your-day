@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import { useSelector } from 'react-redux'
 
 import Playlist from '../../../assets/Seasons playlist compressed.mp3'
 
 import PlayBtn from './PlayBtn'
 
-const ControlBar = ({ musicPlaying, handleMusicPlaying, showControlBar }) => {
+const ControlBar = ({ showControlBar }) => {
   const [audio] = useState(new Audio(Playlist))
+
+  const musicPlaying = useSelector((state) => state.music.isMusicPlaying)
 
   useEffect(() => {
     musicPlaying ? audio.play() : audio.pause()
@@ -14,7 +17,7 @@ const ControlBar = ({ musicPlaying, handleMusicPlaying, showControlBar }) => {
 
   return (
     <Wrapper className={showControlBar ? 'show' : 'hide'}>
-      <PlayBtn size={'3rem'} musicPlaying={musicPlaying} handleMusicPlaying={handleMusicPlaying} />
+      <PlayBtn size={'3rem'} musicPlaying={musicPlaying} />
     </Wrapper>
   )
 }
@@ -32,6 +35,14 @@ const Wrapper = styled.div`
   &.show {
     transform: translateY(0rem);
   }
+`
+const ButtonWrapper = styled.button`
+  outline: none;
+  border: none;
+  z-index: 999999;
+  position: relative;
+  top: 0;
+  left: 0;
 `
 
 export default ControlBar

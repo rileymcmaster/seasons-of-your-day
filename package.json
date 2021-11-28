@@ -10,11 +10,13 @@
     "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",
     "react-intersection-observer": "^8.32.3",
+    "react-redux": "^7.2.6",
     "react-reveal": "^1.2.2",
     "react-scripts": "3.1.1",
     "react-spring": "9.0.0-beta.34",
     "react-transition-group": "^4.4.2",
     "react-use-gesture": "6.0.8",
+    "redux": "^4.1.2",
     "styled-components": "^5.3.1"
   },
   "devDependencies": {},
