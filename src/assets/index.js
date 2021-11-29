@@ -184,3 +184,6 @@ export const photosetFullbleed = buildFullBleedSets([8, 12, 6, 3, 2, 19])
 export const photosetFlash = buildPhotoset([7], flashText)
 //end
 export const photosetEnd = buildPhotoset([23])
+
+export const playlistSrc =
+  'https://res.cloudinary.com/bodyofwater/video/upload/v1638149120/Seasons/assets/audio/Seasons_playlist_compressed_s1hcwi.mp3'

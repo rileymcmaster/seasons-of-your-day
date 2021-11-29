@@ -4,7 +4,7 @@ import CardAll from './CardAll'
 
 const Deck = ({ data }) => {
   const { text, imagesSmall, imagesLarge, notes } = data
-  console.log('NOTES', notes)
+
   return (
     <Wrapper className="scroll-snap">
       <CardAll cardsSmall={imagesSmall} cardsLarge={imagesLarge} notes={notes} />

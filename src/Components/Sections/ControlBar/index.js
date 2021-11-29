@@ -1,26 +1,35 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { useSelector } from 'react-redux'
-
-import Playlist from 'assets/Seasons playlist compressed.mp3'
+import { useSelector, connect } from 'react-redux'
 
 import PlayBtn from './PlayBtn'
 
-const PlaylistSrc =
-  'https://res.cloudinary.com/bodyofwater/video/upload/v1638149120/Seasons/assets/audio/Seasons_playlist_compressed_s1hcwi.mp3'
+import { playlistSrc } from 'assets'
 
-const ControlBar = ({ showControlBar }) => {
-  const [audio] = useState(new Audio(PlaylistSrc))
+const mapStateToProps = ({ music }) => ({
+  music
+})
 
-  const musicPlaying = useSelector((state) => state.music.isMusicPlaying)
+const ControlBar = ({ showControlBar, music }) => {
+  const [audio, setAudio] = useState(null)
+
+  const musicPlaying = music.isMusicPlaying
 
   useEffect(() => {
-    musicPlaying ? audio.play() : audio.pause()
+    if (!audio) {
+      setAudio(new Audio(playlistSrc))
+    }
+  }, [])
+
+  useEffect(() => {
+    if (audio) {
+      musicPlaying ? audio.play() : audio.pause()
+    }
   }, [musicPlaying])
 
   return (
     <Wrapper className={showControlBar ? 'show' : 'hide'}>
-      <PlayBtn size={'3rem'} musicPlaying={musicPlaying} />
+      <PlayBtn size={'3rem'} />
     </Wrapper>
   )
 }
@@ -39,13 +48,5 @@ const Wrapper = styled.div`
     transform: translateY(0rem);
   }
 `
-const ButtonWrapper = styled.button`
-  outline: none;
-  border: none;
-  z-index: 999999;
-  position: relative;
-  top: 0;
-  left: 0;
-`
 
-export default ControlBar
+export default connect(mapStateToProps)(ControlBar)
