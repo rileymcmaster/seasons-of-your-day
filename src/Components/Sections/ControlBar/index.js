@@ -2,12 +2,15 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { useSelector } from 'react-redux'
 
-import Playlist from '../../../assets/Seasons playlist compressed.mp3'
+import Playlist from 'assets/Seasons playlist compressed.mp3'
 
 import PlayBtn from './PlayBtn'
 
+const PlaylistSrc =
+  'https://res.cloudinary.com/bodyofwater/video/upload/v1638149120/Seasons/assets/audio/Seasons_playlist_compressed_s1hcwi.mp3'
+
 const ControlBar = ({ showControlBar }) => {
-  const [audio] = useState(new Audio(Playlist))
+  const [audio] = useState(new Audio(PlaylistSrc))
 
   const musicPlaying = useSelector((state) => state.music.isMusicPlaying)
 

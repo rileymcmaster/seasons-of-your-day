@@ -6,8 +6,17 @@ import { playMusic } from '../../../actions/isMusicPlaying'
 import { AiFillPlayCircle } from 'react-icons/ai'
 import { loopVideo } from '../../../assets/index'
 
+const videoSrc = 'https://res.cloudinary.com/bodyofwater/video/upload/v1638149442/Seasons/assets/video/loopVideo_pzpuwu.mp4'
+
+const mapStateToProps = (state) => {
+  return {
+    isMusicPlaying: state.music.isMusicPlaying
+  }
+}
+
 const Video = () => {
   const [playVideo, setPlayVideo] = useState(false)
+  const [muted, setMuted] = useState(false)
   const [fullscreenVideo, setFullScreenVideo] = useState(false)
 
   const videoRef = useRef(null)
@@ -19,13 +28,8 @@ const Video = () => {
     if (musicPlaying) {
       dispatch(playMusic())
     }
-    const winScroll = document.body.scrollTop || document.documentElement.scrollTop
-    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight
-    const scrolled = winScroll / height
-
     setFullScreenVideo(false)
-    let currentVideo = document.querySelector('video')
-    currentVideo.muted = true
+    setMuted(true)
     window.removeEventListener('scroll', handleMute)
   }
 
@@ -42,8 +46,9 @@ const Video = () => {
 
   return (
     <Wrapper ref={videoRef}>
-      <video className={fullscreenVideo ? 'fullscreen' : undefined} preload="auto" playsInline loop={true}>
-        <source src={`${loopVideo}#t=0.5`} type="video/mp4" />
+      <video className={fullscreenVideo ? 'fullscreen' : undefined} preload="auto" playsInline loop={true} muted={muted}>
+        {/* <source src={`${loopVideo}#t=0.5`} type="video/mp4" /> */}
+        <source src={`${videoSrc}#t=0.5`} type="video/mp4" />
       </video>
       {!playVideo && (
         <Icon onClick={handlePlay}>
@@ -94,11 +99,5 @@ const Icon = styled.span`
     font-size: 3rem;
   }
 `
-const mapStateToProps = (state) => {
-  return {
-    isMusicPlaying: state.music.isMusicPlaying
-  }
-}
-export default connect(mapStateToProps)(Video)
 
-// export default Video
+export default connect(mapStateToProps)(Video)

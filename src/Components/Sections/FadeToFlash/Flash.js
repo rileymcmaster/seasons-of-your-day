@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import styled, { keyframes, css } from 'styled-components'
+import { useDispatch } from 'react-redux'
+import { showEndSection } from '../../../actions/showSections'
 import { useInView } from 'react-intersection-observer'
 import useScrollBlock from '../../../hooks/useScrollBlock'
 import ImageLoader from '../../utils/ImageLoader'
 
-const Flash = ({ data, setShowLastPart }) => {
+const Flash = ({ data }) => {
   const [isInView, setIsInView] = useState(false)
   const [blockScroll, allowScroll] = useScrollBlock()
+
+  const dispatch = useDispatch()
 
   const { imagesSmall, imagesLarge } = data
 
@@ -25,12 +29,10 @@ const Flash = ({ data, setShowLastPart }) => {
 
   useEffect(() => {
     if (isInView) {
-      // stop the user's ability to scroll while the image appears
-      // TODO - comment this back in :)
       blockScroll()
       setTimeout(() => {
         allowScroll()
-        setShowLastPart(true)
+        dispatch(showEndSection())
       }, 8000)
     }
   }, [isInView])
@@ -59,12 +61,13 @@ const FlashAnimation = keyframes`
 const Wrapper = styled.div`
   height: 100vh;
   height: var(--full-height);
+
   overflow: hidden;
   background-color: black;
   position: relative;
   display: flex;
   /* scroll-snap-align: center; */
-  scroll-snap-stop: always;
+  /* scroll-snap-stop: always; */
   div.bottom {
     position: absolute;
     bottom: 0;
@@ -75,6 +78,7 @@ const ImageContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
   position: relative;
 
   width: 500px;

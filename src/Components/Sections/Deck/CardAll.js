@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, Suspense } from 'react'
 import styled from 'styled-components'
 import CardEach from './CardEach'
 
@@ -11,7 +11,7 @@ const from = (i) => ({ x: 0, rot: 0, scale: 2, y: -1000 })
 // This is being used down there in the view, it interpolates rotation and scale into a css transform
 const trans = (r, s) => `perspective(1000px) rotateX(00deg) rotateY(${r / 10}deg) rotateZ(${r}deg) scale(${s})`
 
-const CardAll = ({ cardsSmall, cardsLarge }) => {
+const CardAll = ({ cardsSmall, cardsLarge, notes }) => {
   const [deckCleared, setDeckCleared] = useState(false)
   const [gone] = useState(() => new Set()) // The set flags all the cards that are flicked out
   const [props, set] = useSprings(cardsSmall.length, (i) => ({ ...to(i), from: from(i) })) // Create a bunch of springs using the helpers above
@@ -41,18 +41,21 @@ const CardAll = ({ cardsSmall, cardsLarge }) => {
   })
 
   return (
-    <Wrapper className={deckCleared ? 'cleared' : undefined}>
-      {props.map(({ x, y, rot, scale }, i) => (
-        <animated.div className="card-container" key={i} style={{ x, y }}>
-          <CardEach
-            styles={{ transform: interpolate([rot, scale], trans), touchAction: 'pan-y' }}
-            bind={bind(i)}
-            imgSm={cardsSmall[i]}
-            imgLg={cardsLarge[i]}
-          />
-        </animated.div>
-      ))}
-    </Wrapper>
+    <Suspense fallback={<h1>LOADING</h1>}>
+      <Wrapper className={deckCleared ? 'cleared' : undefined}>
+        {props.map(({ x, y, rot, scale }, i) => (
+          <animated.div className="card-container" key={i} style={{ x, y }}>
+            <CardEach
+              styles={{ transform: interpolate([rot, scale], trans), touchAction: 'pan-y' }}
+              bind={bind(i)}
+              imgSm={cardsSmall[i]}
+              imgLg={cardsLarge[i]}
+              note={notes?.[i]}
+            />
+          </animated.div>
+        ))}
+      </Wrapper>
+    </Suspense>
   )
 }
 

@@ -48,6 +48,19 @@ const img21S = require('./small/Photo21.jpg')
 const img22S = require('./small/Photo22.jpg')
 const img23S = require('./small/Photo23.jpg')
 
+const overlay1 = require('./overlays/find myself moving on-01.png') //
+const overlay2 = require('./overlays/is time waitin-01.png') //
+const overlay3 = require('./overlays/just wait around-01.png') //
+const overlay4 = require('./overlays/pickin up-01.png') //
+const overlay5 = require('./overlays/that way again-01.png')
+const overlay6 = require('./overlays/this way again_-01.png') //
+const overlay7 = require('./overlays/Waitin round.png') //
+const overlay8 = require("./overlays/you've been asleep-01.png") //
+const overlay9 = require('./overlays/your beauty-01.png') //
+const overlay10 = require('./overlays/your slippin-01.png')
+
+const allOverlays = { overlay1, overlay2, overlay3, overlay4, overlay5, overlay6, overlay7, overlay8, overlay9, overlay10 }
+
 const allImagesSmall = {
   img1S,
   img2S,
@@ -114,20 +127,37 @@ const flashText = [
   "'til I can shade you"
 ]
 
-const buildPhotoset = (images, text) => {
+// overlays is expected as an object => { key(image#) : value(overlay#) }
+
+const buildPhotoset = (images, text, overlays) => {
   let imagesSmall = []
   let imagesLarge = []
 
-  images.forEach((image) => {
+  let overlaysKeys = overlays ? Object.keys(overlays) : []
+  let notes = {}
+
+  images.forEach((image, index) => {
     const small = `img${image}S`
     const large = `img${image}L`
+
+    const findOverlayMatch = overlaysKeys.findIndex((note) => +note === +image)
+
+    if (findOverlayMatch >= 0) {
+      let relevantOverlay = overlays[overlaysKeys[findOverlayMatch]]
+      let overlayName = `overlay${relevantOverlay}`
+
+      notes[index] = allOverlays[overlayName]
+    }
+
     imagesSmall.unshift(allImagesSmall[small])
     imagesLarge.unshift(allImagesLarge[large])
   })
+
   return {
     imagesSmall,
     imagesLarge,
-    text: text || ''
+    text: text || '',
+    notes
   }
 }
 
@@ -139,14 +169,15 @@ const buildFullBleedSets = (photos) => {
 }
 
 // title
-export const photosetTitle = buildPhotoset([1])
+export const photosetTitle = buildPhotoset([1], '', { 1: 2 })
 // decks
-export const photosetDeck1 = buildPhotoset([15, 9, 13, 14, 18, 5], 'I’m a mountain in the glories that we claim')
+export const photosetDeck1 = buildPhotoset([15, 9, 13, 14, 5], 'I’m a mountain in the glories that we claim', { 9: 1, 5: 8, 14: 7 })
 export const photosetDeck2 = buildPhotoset(
   [17, 18, 11, 10, 20],
-  'Why don’t you take a friend in the shade. Somewhere where all the minutes stay around'
+  'Why don’t you take a friend in the shade. Somewhere where all the minutes stay around',
+  { 20: 3, 11: 9 }
 )
-export const photosetDeck3 = buildPhotoset([16, 4, 22])
+export const photosetDeck3 = buildPhotoset([16, 4, 22], '', { 22: 6, 16: 4 })
 // fullbleed
 export const photosetFullbleed = buildFullBleedSets([8, 12, 6, 3, 2, 19])
 //flash

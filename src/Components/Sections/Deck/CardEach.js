@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { animated } from 'react-spring'
 
-const CardEach = ({ bind, styles, imgSm, imgLg }) => {
+const CardEach = ({ bind, styles, imgSm, imgLg, note }) => {
   const [isFullscreen, setIsFullscreen] = useState(false)
   const [imageLoaded, setImageLoaded] = useState(false)
   const [isBackside, setIsBackside] = useState(false)
@@ -44,6 +44,7 @@ const CardEach = ({ bind, styles, imgSm, imgLg }) => {
       {isFullscreen && (
         <img src={imgLg} onLoad={handleLoad} style={{ opacity: isFullscreen && !isBackside ? 1 : isFullscreen && isBackside ? 0.1 : 0 }} />
       )}
+      {note && <img className="note" style={{ filter: 'blur(.5px)', opacity: isBackside ? 1 : 0, transition: 'opacity 0s' }} src={note} />}
     </EachCard>
   )
 }
@@ -77,14 +78,24 @@ const EachCard = styled(animated.div)`
     user-select: none;
     pointer-events: none;
     position: absolute;
-    filter: ${(props) => (props.size.backside ? 'blur(2px)' : 'blur(0px)')};
+    filter: ${(props) => (props.size.backside ? 'blur(2px) contrast(.5) brightness(1.2)' : 'blur(0px) contrast(1) brightness(1)')};
     transition: opacity 0.5s;
     box-shadow: 0 0 1px rgba(255, 255, 255, 0);
     will-change: transform;
+    opacity: 1;
+  }
+  img.note {
+    filter: blur(0.5px);
+    opacity: ${(props) => (props.isBackside ? 1 : 0)};
+    transition: opacity 0s;
   }
   &.show-back {
     transition: transform 1s;
     transform: scaleX(-1);
+  }
+  &.show-back img {
+    /* opacity: 0; */
+    /* filter: contrast(0.1) brightness(2); */
   }
   &.show-front {
     transform: scaleX(1);

@@ -19,6 +19,7 @@ export default createGlobalStyle`
       --instruction-page-height: calc(var(--vh, 1vh) * 200);
       --fade-page-height: calc(var(--vh, 1vh) * 500);
       --fade-content-height: calc(var(--vh, 1vh) * 300);
+      --flash-infinite-scroll-height: calc(var(--vh, 1vh) * 1000);
     }
     
 
@@ -42,10 +43,25 @@ export default createGlobalStyle`
     html {
         /* scroll-behavior: smooth; */
         font-size: 22px;
-                overflow-y: scroll;
-        scroll-snap-type: proximity;
-        scroll-snap-type: y proximity;
-        scroll-snap-points-y: repeat(100%);
+        /* overflow-y: scroll; */
+        /* scroll-snap-type: y proximity; */
+        /* scroll-snap-destination: 0 0; */
+        /* scroll-snap-type: y; */
+        /* -webkit-overflow-scrolling: touch; */
+        /* overscroll-behavior-y: contain; */
+        /* scroll-snap-points-y: repeat(100%); */
+    }
+
+    body {
+        overflow-y: scroll;
+        overscroll-behavior-y: contain;
+        -webkit-overflow-scrolling: touch;
+        /* scroll-snap-type: proximity; */
+        /* scroll-snap-type: y proximity;     */
+        /* -webkit-scroll-snap-type: y mandatory; */
+        /* scroll-snap-destination: 0 0; */
+        /* scroll-snap-type: y; */
+        /* scroll-snap-points-y: repeat(100%); */
     }
     
     @media (max-width: 800px) {
@@ -57,11 +73,8 @@ export default createGlobalStyle`
     
     
     html, body {
-        overscroll-behavior-y: contain;
         user-select: none;
         scroll-behavior: smooth;
-
-        height: 100%;
     }
 
     .scroll-snap {

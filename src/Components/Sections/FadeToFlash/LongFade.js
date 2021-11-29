@@ -11,7 +11,7 @@ const LongFade = ({ data }) => {
           <img src={imagesSmall[0]} alt="photograph" width="100%" />
         </FixedFade>
       </FadeBackground>
-      {data.text.map((quote) => {
+      {text.map((quote) => {
         return (
           <QuoteContainer key={Math.random() * 100000}>
             <p>{quote}</p>
@@ -34,13 +34,14 @@ const FixedFade = styled.div`
   position: sticky;
   display: flex;
   justify-content: center;
-  height: 100vh;
-  height: var(--full-height);
+  height: 120vh;
+  height: var(--deck-page-height);
   top: 0;
   background: rgba(94, 94, 94, 0.7707457983193278);
   background: linear-gradient(180deg, rgba(255, 255, 255, 0) 55%, rgba(94, 94, 94, 1) 90%);
   mix-blend-mode: color-burn;
   img {
+    transform: translateY(-40%);
     width: 50vw;
     max-width: 500px;
     margin: auto;
@@ -61,6 +62,7 @@ const QuoteContainer = styled.div`
     justify-content: center;
     align-items: center;
     top: 50%;
+    transform: translateY(-50%);
     margin-bottom: var(--full-height);
     position: sticky;
   }

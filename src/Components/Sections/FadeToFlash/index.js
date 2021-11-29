@@ -3,11 +3,11 @@ import styled from 'styled-components'
 import Flash from './Flash'
 import LongFade from './LongFade'
 
-const FadeToFlash = ({ data, setShowLastPart }) => {
+const FadeToFlash = ({ data }) => {
   return (
     <Wrapper>
       <LongFade data={data} />
-      <Flash data={data} setShowLastPart={setShowLastPart} />
+      <Flash data={data} />
     </Wrapper>
   )
 }
