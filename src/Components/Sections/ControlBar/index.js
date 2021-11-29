@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef } from 'react'
 import styled from 'styled-components'
-import { useSelector, connect } from 'react-redux'
+import { connect } from 'react-redux'
 
 import PlayBtn from './PlayBtn'
 
@@ -11,24 +11,18 @@ const mapStateToProps = ({ music }) => ({
 })
 
 const ControlBar = ({ showControlBar, music }) => {
-  const [audio, setAudio] = useState(null)
-
+  const audioRef = useRef(null)
   const musicPlaying = music.isMusicPlaying
 
   useEffect(() => {
-    if (!audio) {
-      setAudio(new Audio(playlistSrc))
-    }
-  }, [])
-
-  useEffect(() => {
-    if (audio) {
-      musicPlaying ? audio.play() : audio.pause()
+    if (audioRef.current) {
+      musicPlaying ? audioRef.current.play() : audioRef.current.pause()
     }
   }, [musicPlaying])
 
   return (
     <Wrapper className={showControlBar ? 'show' : 'hide'}>
+      <audio ref={audioRef} src={playlistSrc} style={{ display: 'none' }} />
       <PlayBtn size={'3rem'} />
     </Wrapper>
   )
