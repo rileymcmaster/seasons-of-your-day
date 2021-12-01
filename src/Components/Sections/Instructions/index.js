@@ -11,7 +11,7 @@ const mapStateToProps = ({ showSections }) => ({
   showSections
 })
 
-const Instructions = ({ data, handleShowControlBar }) => {
+const Instructions = ({ data }) => {
   const text = data
 
   const dispatch = useDispatch()
@@ -23,7 +23,6 @@ const Instructions = ({ data, handleShowControlBar }) => {
   useEffect(() => {
     if (inView) {
       dispatch(showControlBar())
-      // handleShowControlBar()
     }
   }, [inView])
 

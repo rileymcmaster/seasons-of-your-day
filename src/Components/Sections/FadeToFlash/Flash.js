@@ -12,30 +12,26 @@ const Flash = ({ data }) => {
 
   const dispatch = useDispatch()
 
-  const { imagesSmall, imagesLarge } = data
-
-  const imgSmall = imagesSmall[0]
-  const imgLarge = imagesLarge[0]
-
-  const [ref, inView] = useInView({
+  const [flashRef, inView] = useInView({
     threshold: 0
   })
 
-  useEffect(() => {
-    if (inView) {
-      setIsInView(true)
-    }
-  }, [inView])
+  const { imagesSmall, imagesLarge } = data
+  const imgSmall = imagesSmall[0]
+  const imgLarge = imagesLarge[0]
 
   useEffect(() => {
-    if (isInView) {
-      blockScroll()
-      setTimeout(() => {
-        allowScroll()
-        dispatch(showEndSection())
-      }, 8000)
+    if (inView) {
+      if (!isInView) {
+        setIsInView(true)
+        blockScroll()
+        setTimeout(() => {
+          allowScroll()
+          dispatch(showEndSection())
+        }, 8000)
+      }
     }
-  }, [isInView])
+  }, [inView])
 
   const styles = {
     top: '50%',
@@ -48,7 +44,7 @@ const Flash = ({ data }) => {
       <ImageContainer className={isInView ? 'image-overlay' : undefined}>
         <ImageLoader imgSmall={imgSmall} imgLarge={imgLarge} styles={styles} />
       </ImageContainer>
-      <div className="bottom" ref={ref}></div>
+      <div className="bottom" ref={flashRef}></div>
     </Wrapper>
   )
 }
@@ -60,17 +56,24 @@ const FlashAnimation = keyframes`
 
 const Wrapper = styled.div`
   height: 100vh;
-  height: var(--full-height);
+  height: var(--deck-page-height);
+
+  @media (min-width: 768px) {
+    & {
+      height: 100vh;
+    }
+  }
 
   overflow: hidden;
   background-color: black;
   position: relative;
   display: flex;
-  /* scroll-snap-align: center; */
-  /* scroll-snap-stop: always; */
+
   div.bottom {
     position: absolute;
     bottom: 0;
+    visibility: none;
+    height: 10vh;
   }
 `
 

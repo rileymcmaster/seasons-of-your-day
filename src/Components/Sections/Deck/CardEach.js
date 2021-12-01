@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import styled, { keyframes } from 'styled-components'
 import { animated } from 'react-spring'
 import useWindowSize from 'hooks/useWindowSize'
@@ -94,11 +94,10 @@ const EachCard = styled(animated.div)`
     animation-name: ${fadeIn};
     animation-duration: 5s;
     z-index: 1;
-    opacity: ${({ size: { imageLoaded, backside } }) => (imageLoaded ? 0 : !imageLoaded && backside ? 0.1 : 1)};
+    opacity: ${({ size: { backside } }) => (backside ? 0.1 : 1)};
   }
   img.img-large {
     z-index: 2;
-    /* transition: opacity 0s; */
     opacity: ${({ size: { imageLoaded, backside } }) => (imageLoaded && !backside ? 1 : imageLoaded && backside ? 0.1 : 0)};
   }
   img.note {

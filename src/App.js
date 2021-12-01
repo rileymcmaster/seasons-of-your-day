@@ -1,8 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import GlobalStyles from './GlobalStyles'
-
-import { useSelector, connect } from 'react-redux'
 
 import {
   photosetTitle,
@@ -25,18 +23,12 @@ import End from './Components/Sections/End/'
 import Instructions from './Components/Sections/Instructions'
 import ControlBar from './Components/Sections/ControlBar'
 import FullBleedGroup from './Components/Sections/FullBleedGroup'
-import MainContent from './MainContent'
 
-const mapStateToProps = ({ showSections }) => ({
-  showSections
-})
-
-const App = ({ showSections }) => {
-  const {} = showSections
-
+const App = () => {
   return (
     <>
       <GlobalStyles />
+      <ControlBar />
       <Wrapper>
         <Title data={photosetTitle} />
         <SpacerDiv />
@@ -50,7 +42,6 @@ const App = ({ showSections }) => {
         <FadeToFlash data={photosetFlash} />
         <End data={{ photo: photosetEnd, text: endText }} />
       </Wrapper>
-      <ControlBar />
     </>
   )
 }
@@ -62,4 +53,4 @@ const SpacerDiv = styled.div`
   height: var(--spacer-height);
 `
 
-export default connect(mapStateToProps)(App)
+export default App

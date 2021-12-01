@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
 
@@ -16,7 +16,7 @@ const ControlBar = ({ music, showSections }) => {
 
   const musicPlaying = music.isMusicPlaying
 
-  const showControlBar = showSections.controlbar
+  const showControlBar = showSections.controlBar
 
   useEffect(() => {
     musicPlaying ? audio.play() : audio.pause()

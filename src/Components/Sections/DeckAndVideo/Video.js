@@ -1,6 +1,6 @@
 import React, { useRef, useState, Suspense } from 'react'
 import styled from 'styled-components'
-import { connect, useDispatch, useSelector } from 'react-redux'
+import { connect, useDispatch } from 'react-redux'
 import { playMusic } from '../../../actions/isMusicPlaying'
 import { video } from '../../../assets/index'
 

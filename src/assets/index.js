@@ -1,10 +1,10 @@
-import loopVideo from './loopVideo.mp4'
-export { loopVideo }
-
 const videoSrc = 'https://res.cloudinary.com/bodyofwater/video/upload/v1638149442/Seasons/assets/video/loopVideo_pzpuwu.mp4'
 const videoThumb = './video-thumbnail_frqoeo.jpg'
 
 export const video = { videoSrc, videoThumb }
+
+export const playlistSrc =
+  'https://res.cloudinary.com/bodyofwater/video/upload/v1638149120/Seasons/assets/audio/Seasons_playlist_compressed_s1hcwi.mp3'
 
 const img1L = require('./large/Photo1.jpg')
 const img2L = require('./large/Photo2.jpg')
@@ -190,6 +190,3 @@ export const photosetFullbleed = buildFullBleedSets([8, 12, 6, 3, 2, 19])
 export const photosetFlash = buildPhotoset([7], flashText)
 //end
 export const photosetEnd = buildPhotoset([23])
-
-export const playlistSrc =
-  'https://res.cloudinary.com/bodyofwater/video/upload/v1638149120/Seasons/assets/audio/Seasons_playlist_compressed_s1hcwi.mp3'

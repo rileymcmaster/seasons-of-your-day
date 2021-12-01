@@ -6,7 +6,7 @@ export default ({ imgSmall, imgLarge, styles }) => {
   const [imageLoaded, setImageLoaded] = useState(false)
 
   // only load the large images if they are on a desktop
-  const isDesktop = useWindowSize().width >= 600
+  const isDesktop = useWindowSize().width >= 700
 
   const handleLoad = () => {
     setImageLoaded(true)
@@ -14,8 +14,8 @@ export default ({ imgSmall, imgLarge, styles }) => {
 
   return (
     <Wrapper>
-      <Image src={imgSmall} style={{ ...styles, zIndex: 1, opacity: imageLoaded ? 0 : 1 }} />
-      {isDesktop && <Image src={imgLarge} style={{ ...styles, zIndex: 0 }} onLoad={handleLoad} />}
+      <Image src={imgSmall} style={{ ...styles, zIndex: 1 }} />
+      {isDesktop && <Image src={imgLarge} style={{ ...styles, zIndex: 2 }} onLoad={handleLoad} />}
     </Wrapper>
   )
 }
@@ -33,6 +33,4 @@ const Image = styled.img`
   position: absolute;
   transition: opacity 1s;
   width: 100%;
-  max-width: 100%;
-  max-height: 100%;
 `
