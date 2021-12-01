@@ -42,12 +42,11 @@ const MainContent = () => {
       <FullBleed data={photosetFullbleed[0]} />
       <Deck data={photosetDeck2} />
       <FullBleed data={photosetFullbleed[1]} />
-      <DeckAndVideo data={photosetDeck3} musicPlaying={musicPlaying} handleMusicPlaying={handleMusicPlaying} />
+      <DeckAndVideo data={photosetDeck3} />
       <FullBleedGroup data={{ photos: photosetFullbleed, text: fullBleedText }} />
       <FadeToFlash data={photosetFlash} />
       {/* todo - move the conditional rendering into End/> */}
       {endSection && <End data={{ photo: photosetEnd, text: endText }} />}
-      <ControlBar showControlBar={showControlBar} />
     </>
   )
 }

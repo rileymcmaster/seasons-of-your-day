@@ -15,12 +15,10 @@ const Title = ({ data }) => {
       allowScroll()
     }, 1000)
   }, [])
-  const handleLoad = () => {
-    console.log('handleLoad')
-  }
+
   return (
     <Wrapper>
-      {showCard && <Deck onLoad={handleLoad} data={data} />}
+      {showCard && <Deck data={data} />}
       <TitleSVG fill="var(--primary-colour)" />
       <Instructions className={showCard ? 'show-text' : undefined}>
         <p className="first">Swipe a picture to discover what’s underneath</p>

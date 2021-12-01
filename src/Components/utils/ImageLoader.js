@@ -1,8 +1,12 @@
+import useWindowSize from 'hooks/useWindowSize'
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
 export default ({ imgSmall, imgLarge, styles }) => {
   const [imageLoaded, setImageLoaded] = useState(false)
+
+  // only load the large images if they are on a desktop
+  const isDesktop = useWindowSize().width >= 600
 
   const handleLoad = () => {
     setImageLoaded(true)
@@ -11,7 +15,7 @@ export default ({ imgSmall, imgLarge, styles }) => {
   return (
     <Wrapper>
       <Image src={imgSmall} style={{ ...styles, zIndex: 1, opacity: imageLoaded ? 0 : 1 }} />
-      <Image src={imgLarge} style={{ ...styles, zIndex: 0 }} onLoad={handleLoad} />
+      {isDesktop && <Image src={imgLarge} style={{ ...styles, zIndex: 0 }} onLoad={handleLoad} />}
     </Wrapper>
   )
 }

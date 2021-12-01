@@ -2,28 +2,37 @@ import React from 'react'
 import styled from 'styled-components'
 import Credits from './Credits'
 import ImageLoader from '../../utils/ImageLoader'
+import { connect } from 'react-redux'
 
-const End = ({ data }) => {
+const mapStateToProps = ({ showSections }) => ({
+  showSections
+})
+
+const End = ({ data, showSections }) => {
   const {
     photo: { imagesSmall, imagesLarge },
     text
   } = data
 
+  const { endSection } = showSections
+
   const imgSmall = imagesSmall[0]
   const imgLarge = imagesLarge[0]
 
   return (
-    <Wrapper>
-      <Container className="scroll-snap">
-        {text.map((phrase) => {
-          return <p key={phrase.split(' ')[0]}>{phrase}</p>
-        })}
-      </Container>
-      <Container className="scroll-snap">
-        <ImageLoader imgSmall={imgSmall} imgLarge={imgLarge} styles={{}} />
-      </Container>
-      <Credits />
-    </Wrapper>
+    endSection && (
+      <Wrapper>
+        <Container className="scroll-snap">
+          {text.map((phrase) => {
+            return <p key={phrase.split(' ')[0]}>{phrase}</p>
+          })}
+        </Container>
+        <Container className="scroll-snap">
+          <ImageLoader imgSmall={imgSmall} imgLarge={imgLarge} styles={{}} />
+        </Container>
+        <Credits />
+      </Wrapper>
+    )
   )
 }
 
@@ -49,4 +58,4 @@ const Container = styled.div`
   }
 `
 
-export default End
+export default connect(mapStateToProps)(End)

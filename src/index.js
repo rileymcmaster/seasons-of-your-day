@@ -9,9 +9,11 @@ const store = configureStore()
 
 const Index = () => {
   return (
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <React.StrictMode>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </React.StrictMode>
   )
 }
 

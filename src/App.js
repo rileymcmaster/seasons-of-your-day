@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import GlobalStyles from './GlobalStyles'
 
-import { useSelector } from 'react-redux'
+import { useSelector, connect } from 'react-redux'
 
 import {
   photosetTitle,
@@ -26,24 +26,13 @@ import Instructions from './Components/Sections/Instructions'
 import ControlBar from './Components/Sections/ControlBar'
 import FullBleedGroup from './Components/Sections/FullBleedGroup'
 import MainContent from './MainContent'
-// import MainContent from './Components/MainContent'
 
-// const OtherComponent = React.lazy(() => import('./MainContent'))
+const mapStateToProps = ({ showSections }) => ({
+  showSections
+})
 
-const App = () => {
-  const [musicPlaying, setMusicPlaying] = useState(false)
-  const [showControlBar, setShowControlBar] = useState(false)
-  const [showLastPart, setShowLastPart] = useState(false)
-
-  const { endSection } = useSelector((state) => state.showSections)
-
-  const handleMusicPlaying = () => {
-    setMusicPlaying(!musicPlaying)
-  }
-
-  const handleShowControlBar = () => {
-    setShowControlBar(true)
-  }
+const App = ({ showSections }) => {
+  const {} = showSections
 
   return (
     <>
@@ -51,19 +40,17 @@ const App = () => {
       <Wrapper>
         <Title data={photosetTitle} />
         <SpacerDiv />
-        <Instructions data={instructions} handleShowControlBar={handleShowControlBar} />
-        {/* <OtherComponent /> */}
-        <MainContent />
-        {/* <Deck data={photosetDeck1} />
+        <Instructions data={instructions} />
+        <Deck data={photosetDeck1} />
         <FullBleed data={photosetFullbleed[0]} />
         <Deck data={photosetDeck2} />
         <FullBleed data={photosetFullbleed[1]} />
-        <DeckAndVideo data={photosetDeck3} musicPlaying={musicPlaying} handleMusicPlaying={handleMusicPlaying} />
+        <DeckAndVideo data={photosetDeck3} />
         <FullBleedGroup data={{ photos: photosetFullbleed, text: fullBleedText }} />
         <FadeToFlash data={photosetFlash} />
-        {endSection && <End data={{ photo: photosetEnd, text: endText }} />} */}
+        <End data={{ photo: photosetEnd, text: endText }} />
       </Wrapper>
-      <ControlBar showControlBar={showControlBar} />
+      <ControlBar />
     </>
   )
 }
@@ -75,4 +62,4 @@ const SpacerDiv = styled.div`
   height: var(--spacer-height);
 `
 
-export default App
+export default connect(mapStateToProps)(App)

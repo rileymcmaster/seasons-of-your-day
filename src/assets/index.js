@@ -1,5 +1,11 @@
 import loopVideo from './loopVideo.mp4'
 export { loopVideo }
+
+const videoSrc = 'https://res.cloudinary.com/bodyofwater/video/upload/v1638149442/Seasons/assets/video/loopVideo_pzpuwu.mp4'
+const videoThumb = './video-thumbnail_frqoeo.jpg'
+
+export const video = { videoSrc, videoThumb }
+
 const img1L = require('./large/Photo1.jpg')
 const img2L = require('./large/Photo2.jpg')
 const img3L = require('./large/Photo3.jpg')

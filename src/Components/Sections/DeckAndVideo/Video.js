@@ -1,20 +1,16 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, Suspense } from 'react'
 import styled from 'styled-components'
 import { connect, useDispatch, useSelector } from 'react-redux'
 import { playMusic } from '../../../actions/isMusicPlaying'
+import { video } from '../../../assets/index'
 
 import { AiFillPlayCircle } from 'react-icons/ai'
-import { loopVideo } from '../../../assets/index'
 
-const videoSrc = 'https://res.cloudinary.com/bodyofwater/video/upload/v1638149442/Seasons/assets/video/loopVideo_pzpuwu.mp4'
+const mapStateToProps = ({ music }) => ({
+  music
+})
 
-const mapStateToProps = (state) => {
-  return {
-    isMusicPlaying: state.music.isMusicPlaying
-  }
-}
-
-const Video = () => {
+const Video = ({ music }) => {
   const [playVideo, setPlayVideo] = useState(false)
   const [muted, setMuted] = useState(false)
   const [fullscreenVideo, setFullScreenVideo] = useState(false)
@@ -22,7 +18,8 @@ const Video = () => {
   const videoRef = useRef(null)
 
   const dispatch = useDispatch()
-  let musicPlaying = useSelector((state) => state.music.isMusicPlaying)
+
+  const musicPlaying = music.isMusicPlaying
 
   const handleMute = () => {
     if (musicPlaying) {
@@ -46,10 +43,11 @@ const Video = () => {
 
   return (
     <Wrapper ref={videoRef}>
-      <video className={fullscreenVideo ? 'fullscreen' : undefined} preload="auto" playsInline loop={true} muted={muted}>
-        {/* <source src={`${loopVideo}#t=0.5`} type="video/mp4" /> */}
-        <source src={`${videoSrc}#t=0.5`} type="video/mp4" />
-      </video>
+      <Suspense fallback={<img src={video.videoThumb} />}>
+        <video className={fullscreenVideo ? 'fullscreen' : undefined} preload="auto" playsInline loop={true} muted={muted}>
+          <source src={`${video.videoSrc}#t=0.5`} type="video/mp4" />
+        </video>
+      </Suspense>
       {!playVideo && (
         <Icon onClick={handlePlay}>
           <AiFillPlayCircle className="icon" />

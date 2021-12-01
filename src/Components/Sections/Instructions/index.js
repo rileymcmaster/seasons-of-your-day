@@ -1,11 +1,20 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
-import PlayBtn from '../ControlBar/PlayBtn'
+import { useDispatch, connect } from 'react-redux'
 import { useInView } from 'react-intersection-observer'
+import { showControlBar } from 'actions/showSections'
+
+import PlayBtn from '../ControlBar/PlayBtn'
 import Fade from 'react-reveal/Fade'
+
+const mapStateToProps = ({ showSections }) => ({
+  showSections
+})
 
 const Instructions = ({ data, handleShowControlBar }) => {
   const text = data
+
+  const dispatch = useDispatch()
 
   const [ref, inView] = useInView({
     threshold: 0
@@ -13,7 +22,8 @@ const Instructions = ({ data, handleShowControlBar }) => {
 
   useEffect(() => {
     if (inView) {
-      handleShowControlBar()
+      dispatch(showControlBar())
+      // handleShowControlBar()
     }
   }, [inView])
 
@@ -55,4 +65,4 @@ const Wrapper = styled.div`
     bottom: 0;
   }
 `
-export default Instructions
+export default connect(mapStateToProps)(Instructions)

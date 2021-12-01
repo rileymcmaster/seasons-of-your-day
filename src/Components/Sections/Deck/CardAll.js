@@ -1,4 +1,4 @@
-import React, { useState, Suspense } from 'react'
+import React, { useState, Suspense, useEffect } from 'react'
 import styled from 'styled-components'
 import CardEach from './CardEach'
 
@@ -18,7 +18,7 @@ const CardAll = ({ cardsSmall, cardsLarge, notes }) => {
 
   // Create a gesture, we're interested in down-state, delta (current-pos - click-pos), direction and velocity
   const bind = useDrag(({ args: [index], down, movement: [mx], direction: [xDir], velocity }) => {
-    const trigger = velocity > 0.4 // If you flick hard enough it should trigger the card to fly out
+    const trigger = velocity > 1 // If you flick hard enough it should trigger the card to fly out
     const dir = xDir < 0 ? -1 : 1 // Direction should either point left or right
 
     if (!down && trigger) gone.add(index) // If button/finger's up and trigger velocity is reached, we flag the card ready to fly out
@@ -41,21 +41,19 @@ const CardAll = ({ cardsSmall, cardsLarge, notes }) => {
   })
 
   return (
-    <Suspense fallback={<h1>LOADING</h1>}>
-      <Wrapper className={deckCleared ? 'cleared' : undefined}>
-        {props.map(({ x, y, rot, scale }, i) => (
-          <animated.div className="card-container" key={i} style={{ x, y }}>
-            <CardEach
-              styles={{ transform: interpolate([rot, scale], trans), touchAction: 'pan-y' }}
-              bind={bind(i)}
-              imgSm={cardsSmall[i]}
-              imgLg={cardsLarge[i]}
-              note={notes?.[i]}
-            />
-          </animated.div>
-        ))}
-      </Wrapper>
-    </Suspense>
+    <Wrapper className={deckCleared ? 'cleared' : undefined}>
+      {props.map(({ x, y, rot, scale }, i) => (
+        <animated.div className="card-container" key={i} style={{ x, y }}>
+          <CardEach
+            styles={{ transform: interpolate([rot, scale], trans), touchAction: 'pan-y' }}
+            bind={bind(i)}
+            imgSm={cardsSmall[i]}
+            imgLg={cardsLarge[i]}
+            note={notes?.[i]}
+          />
+        </animated.div>
+      ))}
+    </Wrapper>
   )
 }
 
@@ -83,8 +81,7 @@ const Wrapper = styled.div`
     align-items: center;
     justify-content: center;
 
-    /* VVVV this locks scrolling if there are images in the stack */
-    /* touch-action: none; */
+    touch-action: none;
   }
 `
 
