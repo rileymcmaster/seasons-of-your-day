@@ -4,23 +4,52 @@ import { connect } from 'react-redux'
 
 import PlayBtn from './PlayBtn'
 
-import { playlistSrc } from 'assets'
+import { playlistSrc, playlistTimestamps } from 'assets'
+import { incTrack } from 'actions/isMusicPlaying'
 
 const mapStateToProps = ({ music, showSections }) => ({
   music,
   showSections
 })
 
-const ControlBar = ({ music, showSections }) => {
+const mapDispatchToProps = (dispatch) => ({
+  incTrackAction: (track) => dispatch(incTrack(track))
+})
+
+const ControlBar = ({ music, showSections, incTrackAction }) => {
   const [audio] = useState(new Audio(playlistSrc))
 
-  const musicPlaying = music.isMusicPlaying
+  let { isMusicPlaying: musicPlaying, trackNum } = music
 
-  const showControlBar = showSections.controlBar
+  const { controlBar: showControlBar } = showSections
+
+  useEffect(() => {
+    if (trackNum) {
+      audio.currentTime = playlistTimestamps[trackNum]
+    }
+  }, [])
 
   useEffect(() => {
     musicPlaying ? audio.play() : audio.pause()
   }, [musicPlaying])
+
+  useEffect(() => {
+    if (!musicPlaying) {
+      return
+    }
+    const updateAudioProgress = setInterval(() => {
+      if (audio.currentTime >= playlistTimestamps[trackNum + 1]) {
+        incTrackAction(trackNum + 1)
+        clearInterval(updateAudioProgress)
+      }
+      if (audio.currentTime >= audio.duration) {
+        incTrackAction(1)
+        audio.currentTime = 0
+        audio.play()
+        clearInterval(updateAudioProgress)
+      }
+    }, 10000)
+  }, [musicPlaying, trackNum])
 
   return (
     <Wrapper className={showControlBar ? 'show' : 'hide'}>
@@ -44,4 +73,4 @@ const Wrapper = styled.div`
   }
 `
 
-export default connect(mapStateToProps)(ControlBar)
+export default connect(mapStateToProps, mapDispatchToProps)(ControlBar)

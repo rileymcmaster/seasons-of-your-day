@@ -6,6 +6,14 @@ export const video = { videoSrc, videoThumb }
 export const playlistSrc =
   'https://res.cloudinary.com/bodyofwater/video/upload/v1638149120/Seasons/assets/audio/Seasons_playlist_compressed_s1hcwi.mp3'
 
+export const playlistTimestamps = {
+  1: 0,
+  2: 250,
+  3: 545,
+  4: 834,
+  5: 1040
+}
+
 const img1L = require('./large/Photo1.jpg')
 const img2L = require('./large/Photo2.jpg')
 const img3L = require('./large/Photo3.jpg')
