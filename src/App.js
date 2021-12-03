@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import GlobalStyles from './GlobalStyles'
+import { connect } from 'react-redux'
 
 import {
   photosetTitle,
@@ -24,7 +25,12 @@ import Instructions from './Components/Sections/Instructions'
 import ControlBar from './Components/Sections/ControlBar'
 import FullBleedGroup from './Components/Sections/FullBleedGroup'
 
-const App = () => {
+const mapStateToProps = ({ showSections }) => ({
+  showSections
+})
+
+const App = ({ showSections }) => {
+  const { mainContent } = showSections
   return (
     <>
       <GlobalStyles />
@@ -33,14 +39,18 @@ const App = () => {
         <Title data={photosetTitle} />
         <SpacerDiv />
         <Instructions data={instructions} />
-        <Deck data={photosetDeck1} />
-        <FullBleed data={photosetFullbleed[0]} />
-        <Deck data={photosetDeck2} />
-        <FullBleed data={photosetFullbleed[1]} />
-        <DeckAndVideo data={photosetDeck3} />
-        <FullBleedGroup data={{ photos: photosetFullbleed, text: fullBleedText }} />
-        <FadeToFlash data={photosetFlash} />
-        <End data={{ photo: photosetEnd, text: endText }} />
+        {mainContent && (
+          <>
+            <Deck data={photosetDeck1} />
+            <FullBleed data={photosetFullbleed[0]} />
+            <Deck data={photosetDeck2} />
+            <FullBleed data={photosetFullbleed[1]} />
+            <DeckAndVideo data={photosetDeck3} />
+            <FullBleedGroup data={{ photos: photosetFullbleed, text: fullBleedText }} />
+            <FadeToFlash data={photosetFlash} />
+            <End data={{ photo: photosetEnd, text: endText }} />
+          </>
+        )}
       </Wrapper>
     </>
   )
@@ -53,4 +63,4 @@ const SpacerDiv = styled.div`
   height: var(--spacer-height);
 `
 
-export default App
+export default connect(mapStateToProps)(App)

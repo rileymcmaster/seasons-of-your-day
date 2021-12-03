@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { useDispatch, connect } from 'react-redux'
 import { useInView } from 'react-intersection-observer'
-import { showControlBar } from 'actions/showSections'
+import { showControlBar, showMainContent } from 'actions/showSections'
 
 import PlayBtn from '../ControlBar/PlayBtn'
 import Fade from 'react-reveal/Fade'
@@ -16,16 +16,24 @@ const Instructions = ({ data }) => {
 
   const dispatch = useDispatch()
 
-  const [ref, inView] = useInView({
+  const [mainContentRef, mainInView] = useInView({
+    threshold: 0
+  })
+  const [controlbarRef, controlbarInView] = useInView({
     threshold: 0
   })
 
   useEffect(() => {
-    if (inView) {
+    if (controlbarInView) {
       dispatch(showControlBar())
     }
-  }, [inView])
+  }, [controlbarInView])
 
+  useEffect(() => {
+    if (mainInView) {
+      dispatch(showMainContent())
+    }
+  }, [mainInView])
   const buttonStyles = {
     opacity: 1,
     transition: 'all 1s'
@@ -41,7 +49,8 @@ const Instructions = ({ data }) => {
         )
       })}
       <PlayBtn size={'5rem'} styles={buttonStyles} />
-      <div className="bottom" ref={ref}></div>
+      <div className="middle" ref={mainContentRef}></div>
+      <div className="bottom" ref={controlbarRef}></div>
     </Wrapper>
   )
 }
@@ -57,9 +66,16 @@ const Wrapper = styled.div`
   padding: 0 2rem;
   text-align: center;
 
-  div.bottom {
+  div.middle {
+    position: absolute;
+    top: 20%;
+    left: 0;
+    height: 50px;
+    width: 50px;
     background: blue;
-    height: 10px;
+    z-index: 99999;
+  }
+  div.bottom {
     position: absolute;
     bottom: 0;
   }
