@@ -1,20 +1,30 @@
 import React, { useEffect, useState } from 'react'
 import styled, { keyframes, css } from 'styled-components'
-import { useDispatch } from 'react-redux'
+import { connect } from 'react-redux'
 import { showEndSection } from '../../actions/showSections'
 import { useInView } from 'react-intersection-observer'
 import useScrollBlock from '../../hooks/useScrollBlock'
 import ImageLoader from '../../utils/ImageLoader'
 
-const Flash = ({ data }) => {
+import { AiOutlineDown } from 'react-icons/ai'
+
+const mapStateToProps = ({ showSections }) => ({
+  showSections
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  showEndSectionAction: () => dispatch(showEndSection())
+})
+
+const Flash = ({ data, showSections, showEndSectionAction }) => {
   const [isInView, setIsInView] = useState(false)
   const [blockScroll, allowScroll] = useScrollBlock()
-
-  const dispatch = useDispatch()
 
   const [flashRef, inView] = useInView({
     threshold: 0
   })
+
+  let { endSection } = showSections
 
   const { imagesSmall, imagesLarge } = data
   const imgSmall = imagesSmall[0]
@@ -27,7 +37,7 @@ const Flash = ({ data }) => {
         blockScroll()
         setTimeout(() => {
           allowScroll()
-          dispatch(showEndSection())
+          showEndSectionAction()
         }, 8000)
       }
     }
@@ -44,6 +54,11 @@ const Flash = ({ data }) => {
       <ImageContainer className={isInView ? 'image-overlay' : undefined}>
         <ImageLoader imgSmall={imgSmall} imgLarge={imgLarge} styles={styles} />
       </ImageContainer>
+      {endSection && (
+        <Icon>
+          <AiOutlineDown />
+        </Icon>
+      )}
       <div className="bottom" ref={flashRef}></div>
     </Wrapper>
   )
@@ -73,7 +88,7 @@ const Wrapper = styled.div`
     position: absolute;
     bottom: 0;
     visibility: none;
-    height: 10vh;
+    height: 1vh;
   }
 `
 
@@ -118,5 +133,35 @@ const FlashDiv = styled.div`
   width: 100%;
   height: 100%;
 `
+const fadeIn = keyframes`
+0% {
+  opacity: 0%
+}
+45% {
+  opacity: 80%
+}
+55% {
+  opacity: 80%
+}
+100% {
+  opacity: 0%
+}
+`
 
-export default Flash
+const Icon = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  opacity: 0;
+  transform: translate(0, -50%);
+  svg {
+    color: white;
+    font-size: 2rem;
+    filter: drop-shadow(2px -2px 5px rgba(255, 255, 255, 0.6)) drop-shadow(-2px -2px 5px rgba(255, 255, 255, 0.6))
+      drop-shadow(0px 8px 10px rgba(255, 255, 255, 0.4));
+  }
+  animation: ${fadeIn} 4s infinite;
+  animation-delay: 2s;
+`
+
+export default connect(mapStateToProps, mapDispatchToProps)(Flash)
