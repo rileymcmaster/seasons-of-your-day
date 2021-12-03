@@ -1,7 +1,7 @@
 import React, { useRef, useState, Suspense } from 'react'
 import styled from 'styled-components'
 import { connect, useDispatch } from 'react-redux'
-import { playMusic } from '../../../actions/isMusicPlaying'
+import { playMusic } from '../../actions/isMusicPlaying'
 import { video } from '../../../assets/index'
 
 import { AiFillPlayCircle } from 'react-icons/ai'

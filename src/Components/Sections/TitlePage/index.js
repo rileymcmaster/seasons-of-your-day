@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Deck from '../Deck/index'
 import { ReactComponent as TitleSVG } from '../../../assets/titletext.svg'
-import useScrollBlock from '../../../hooks/useScrollBlock'
+import useScrollBlock from '../../hooks/useScrollBlock'
 
 const Title = ({ data }) => {
   const [showCard, setShowCard] = useState(false)

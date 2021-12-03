@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import PlayBtn from './PlayBtn'
 
 import { playlistSrc, playlistTimestamps } from 'assets'
-import { incTrack } from 'actions/isMusicPlaying'
+import { incTrack } from 'Components/actions/isMusicPlaying'
 
 const mapStateToProps = ({ music, showSections }) => ({
   music,

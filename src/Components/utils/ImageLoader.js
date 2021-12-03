@@ -1,4 +1,4 @@
-import useWindowSize from 'hooks/useWindowSize'
+import useWindowSize from 'Components/hooks/useWindowSize'
 import React, { useState } from 'react'
 import styled from 'styled-components'
 

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { useDispatch, connect } from 'react-redux'
 import { useInView } from 'react-intersection-observer'
-import { showControlBar, showMainContent } from 'actions/showSections'
+import { showControlBar, showMainContent } from 'Components/actions/showSections'
 
 import PlayBtn from '../ControlBar/PlayBtn'
 import Fade from 'react-reveal/Fade'
@@ -68,12 +68,7 @@ const Wrapper = styled.div`
 
   div.middle {
     position: absolute;
-    top: 20%;
-    left: 0;
-    height: 50px;
-    width: 50px;
-    background: blue;
-    z-index: 99999;
+    top: 0;
   }
   div.bottom {
     position: absolute;

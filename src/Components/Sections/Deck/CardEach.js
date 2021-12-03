@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled, { keyframes } from 'styled-components'
 import { animated } from 'react-spring'
-import useWindowSize from 'hooks/useWindowSize'
+import useWindowSize from 'Components/hooks/useWindowSize'
 
 const CardEach = ({ bind, styles, imgSm, imgLg, note }) => {
   const [isFullscreen, setIsFullscreen] = useState(false)

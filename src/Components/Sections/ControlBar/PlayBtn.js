@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { connect } from 'react-redux'
-import { playMusic } from 'actions/isMusicPlaying'
+import { playMusic } from 'Components/actions/isMusicPlaying'
 
 import { BiPlay, BiPause } from 'react-icons/bi'
 

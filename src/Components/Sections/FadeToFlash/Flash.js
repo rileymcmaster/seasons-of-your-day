@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import styled, { keyframes, css } from 'styled-components'
 import { useDispatch } from 'react-redux'
-import { showEndSection } from '../../../actions/showSections'
+import { showEndSection } from '../../actions/showSections'
 import { useInView } from 'react-intersection-observer'
-import useScrollBlock from '../../../hooks/useScrollBlock'
+import useScrollBlock from '../../hooks/useScrollBlock'
 import ImageLoader from '../../utils/ImageLoader'
 
 const Flash = ({ data }) => {

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import GlobalStyles from './GlobalStyles'
+import GlobalStyles from '../GlobalStyles'
 import { connect } from 'react-redux'
 
 import {
@@ -14,16 +14,16 @@ import {
   instructions,
   fullBleedText,
   endText
-} from './assets/index'
-import Title from './Components/Sections/TitlePage/'
-import Deck from './Components/Sections/Deck/'
-import DeckAndVideo from './Components/Sections/DeckAndVideo/'
-import FadeToFlash from './Components/Sections/FadeToFlash/'
-import FullBleed from './Components/Sections/FullBleed/'
-import End from './Components/Sections/End/'
-import Instructions from './Components/Sections/Instructions'
-import ControlBar from './Components/Sections/ControlBar'
-import FullBleedGroup from './Components/Sections/FullBleedGroup'
+} from '../assets/index'
+import Title from './Sections/TitlePage'
+import Deck from './Sections/Deck'
+import DeckAndVideo from './Sections/DeckAndVideo'
+import FadeToFlash from './Sections/FadeToFlash'
+import FullBleed from './Sections/FullBleed'
+import End from './Sections/End'
+import Instructions from './Sections/Instructions'
+import ControlBar from './Sections/ControlBar'
+import FullBleedGroup from './Sections/FullBleedGroup'
 
 const mapStateToProps = ({ showSections }) => ({
   showSections
