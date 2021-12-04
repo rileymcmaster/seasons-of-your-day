@@ -1,6 +1,6 @@
 # Seasons of Your Day
 
-Live preview - [🔗Link🔗](https://nervous-swirles-a58fd5.netlify.app/)
+Live preview - [🔗Link🔗](https://seasonsofyourday.netlify.app/)
 
 Designed in Figma - [🔗Link🔗](https://www.figma.com/file/jjxzbSEqzWTQxvae120nun/Seasons?node-id=0%3A1)
 
