@@ -4,7 +4,8 @@ const videoThumb = './video-thumbnail_frqoeo.jpg'
 export const video = { videoSrc, videoThumb }
 
 export const playlistSrc =
-  'https://res.cloudinary.com/bodyofwater/video/upload/v1638149120/Seasons/assets/audio/Seasons_playlist_compressed_s1hcwi.mp3'
+  'https://res.cloudinary.com/bodyofwater/video/upload/q_auto/a_0/v1638149442/Seasons/assets/video/loopVideo_pzpuwu.mp4'
+// 'https://res.cloudinary.com/bodyofwater/video/upload/v1638149120/Seasons/assets/audio/Seasons_playlist_compressed_s1hcwi.mp3'
 
 export const playlistTimestamps = {
   1: 0,
