@@ -44,9 +44,9 @@ const CardEach = ({ bind, styles, imgSm, imgLg, note }) => {
       style={styles}
       className={`${isFullscreen ? 'fullscreen' : undefined} ${isBackside ? 'show-back' : 'show-front'}`}
       size={size}>
-      <img src={imgSm} className="img-small" />
-      {isDesktop && isFullscreen && <img src={imgLg} className="img-large" onLoad={handleLoad} />}
-      {note && <img className="note" src={note} style={{ filter: 'blur(0px) contrast(0.8) brightness(1)' }} />}
+      <img src={imgSm} className="img-small" alt="" />
+      {isDesktop && isFullscreen && <img src={imgLg} className="img-large" onLoad={handleLoad} alt="" />}
+      {note && <img className="note" src={note} style={{ filter: 'blur(0px) contrast(0.8) brightness(1)' }} alt="" />}
     </EachCard>
   )
 }

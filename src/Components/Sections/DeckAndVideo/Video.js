@@ -43,7 +43,7 @@ const Video = ({ music }) => {
 
   return (
     <Wrapper ref={videoRef}>
-      <Suspense fallback={<img src={video.videoThumb} />}>
+      <Suspense fallback={<img src={video.videoThumb} alt="" />}>
         <video className={fullscreenVideo ? 'fullscreen' : undefined} preload="auto" playsInline loop={true} muted={muted}>
           <source src={`${video.videoSrc}#t=0.5`} type="video/mp4" />
         </video>

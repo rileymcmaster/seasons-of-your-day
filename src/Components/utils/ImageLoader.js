@@ -14,8 +14,8 @@ export default ({ imgSmall, imgLarge, styles }) => {
 
   return (
     <Wrapper>
-      <Image src={imgSmall} style={{ ...styles, zIndex: 1 }} />
-      {isDesktop && <Image src={imgLarge} style={{ ...styles, zIndex: 2 }} onLoad={handleLoad} />}
+      <Image src={imgSmall} style={{ ...styles, zIndex: 1 }} alt="" />
+      {isDesktop && <Image src={imgLarge} style={{ ...styles, zIndex: 2 }} onLoad={handleLoad} alt="" />}
     </Wrapper>
   )
 }
